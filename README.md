@@ -6,7 +6,7 @@ It uses jQuery to dynamically add and remove nested associations.
 
 - Works for arbitrarily deeply nested associations (tested up to 4 levels).
 - Works with form builders like simple_form.
-- Requires the Rails asset pipeline
+- Requires Ruby 1.9 and the Rails asset pipeline
 
 
 
