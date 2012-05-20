@@ -4,8 +4,9 @@ require File.expand_path('../lib/nested_form_fields/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Nico Ritsche"]
   gem.email         = ["ncrdevmail@gmail.com"]
-  gem.description   = %q{Allows to dynamically add and remove nested has_many association fields in a form.}
-  gem.summary       = %q{Allows to dynamically add and remove nested has_many association fields in a form.}
+  gem.description   = %q{Rails gem for dynamically adding and removing nested has_many association fields in a form.
+                         Uses jQuery and supports multiple nesting levels. Requires Ruby 1.9 and the asset pipeline.}
+  gem.summary       = %q{Rails gem for dynamically adding and removing nested has_many association fields in a form.}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)
