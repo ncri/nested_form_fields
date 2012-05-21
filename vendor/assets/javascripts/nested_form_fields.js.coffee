@@ -18,7 +18,7 @@ jQuery ->
       $child = $(this)
       $child.replaceWith($("<script id='#{$child.attr('id')}' type='text/html' />").html($child.html()))
 
-    $link.before( $parsed_template )
+    $template.before( $parsed_template )
     false
 
 
