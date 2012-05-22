@@ -41,27 +41,21 @@ module ActionView::Helpers
       association = convert_to_model(association)
 
       if association.respond_to?(:persisted?)
-        association = [association] if @object.send(association_name).is_a?(Array)
+        association = [association]
       elsif !association.respond_to?(:to_ary)
         association = @object.send(association_name)
       end
 
-      if association.respond_to?(:to_ary)
-        explicit_child_index = options[:child_index]
-        output = ActiveSupport::SafeBuffer.new
-        association.each do |child|
-          output << nested_fields_wrapper(association_name) do
-            fields_for_nested_model("#{name}[#{explicit_child_index || nested_child_index(name)}]", child, options, block)
-          end
+      explicit_child_index = options[:child_index]
+      output = ActiveSupport::SafeBuffer.new
+      association.each do |child|
+        output << nested_fields_wrapper(association_name) do
+          fields_for_nested_model("#{name}[#{explicit_child_index || nested_child_index(name)}]", child, options, block)
         end
-
-        templates = nested_model_template(name, association_name, options, block)
-        output << templates
-
-        output
-      elsif association
-        fields_for_nested_model(name, association, options, block)
       end
+
+      output << nested_model_template(name, association_name, options, block)
+      output
     end
 
 
