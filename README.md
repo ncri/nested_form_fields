@@ -19,10 +19,6 @@ Add this line to your application's Gemfile:
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install nested_form_fields
     
 In your application.js file add: 
 
