@@ -17,7 +17,7 @@ module ActionView::Helpers
       fields_options[:parent_builder] = self
       fields_options[:namespace] = fields_options[:parent_builder].options[:namespace]
 
-      return fields_for_with_nested_attributes_with_template(record_name, record_object, fields_options, block)
+      return fields_for_has_many_association_with_template(record_name, record_object, fields_options, block)
     end
 
 
@@ -36,7 +36,7 @@ module ActionView::Helpers
 
     private
 
-    def fields_for_with_nested_attributes_with_template(association_name, association, options, block)
+    def fields_for_has_many_association_with_template(association_name, association, options, block)
       name = "#{object_name}[#{association_name}_attributes]"
       association = convert_to_model(association)
 
