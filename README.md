@@ -52,6 +52,13 @@ Links to add and remove fields can be added using the *add_nested_fields_link* a
       
 Note that *remove_nested_fields_link* needs to be called within the *nested_fields_for* call and *add_nested_fields_link* outside of it via the parent builder.
 
+You can change the link text of *remove_nested_fields_link* and *add_nested_fields_link* like this:
+
+    ...
+      ff.remove_nested_fields_link 'Remove me'
+      ...
+    f.add_nested_fields_link :videos, 'Add another funtastic video'
+    
 
 ## Contributing
 
