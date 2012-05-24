@@ -58,6 +58,12 @@ You can change the link text of *remove_nested_fields_link* and *add_nested_fiel
       ff.remove_nested_fields_link 'Remove me'
       ...
     f.add_nested_fields_link :videos, 'Add another funtastic video'
+
+You can change the type of the element wrapping the nested fields using the *wrapper* option:
+
+    = f.nested_fields_for :videos, wrapper: :div do |ff|
+
+The default wrapper element is a fieldset.
     
 
 ## Contributing
@@ -67,3 +73,8 @@ You can change the link text of *remove_nested_fields_link* and *add_nested_fiel
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+
+## Contributers
+
+[Tom Riley](https://github.com/tomriley)

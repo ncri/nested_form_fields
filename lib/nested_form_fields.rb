@@ -15,7 +15,7 @@ module ActionView::Helpers
       fields_options, record_object = record_object, nil if record_object.is_a?(Hash) && record_object.extractable_options?
       fields_options[:builder] ||= options[:builder]
       fields_options[:parent_builder] = self
-      fields_options[:nested_fields_wrapper] ||= :fieldset
+      fields_options[:wrapper] ||= :fieldset
       fields_options[:namespace] = fields_options[:parent_builder].options[:namespace]
 
       return fields_for_has_many_association_with_template(record_name, record_object, fields_options, block)
@@ -47,12 +47,10 @@ module ActionView::Helpers
         association = @object.send(association_name)
       end
 
-      explicit_child_index = options[:child_index]
-      wrapper_element_type = options[:nested_fields_wrapper]
       output = ActiveSupport::SafeBuffer.new
       association.each do |child|
-        output << nested_fields_wrapper(association_name, wrapper_element_type) do
-          fields_for_nested_model("#{name}[#{explicit_child_index || nested_child_index(name)}]", child, options, block)
+        output << nested_fields_wrapper(association_name, options[:wrapper]) do
+          fields_for_nested_model("#{name}[#{options[:child_index] || nested_child_index(name)}]", child, options, block)
         end
       end
 
@@ -63,7 +61,6 @@ module ActionView::Helpers
 
     def nested_model_template name, association_name, options, block
       for_template = self.options[:for_template]
-      wrapper_element_type = options[:nested_fields_wrapper]
       
       # Render the outermost template in a script tag to avoid it from being submited with the form
       # Render all deeper nested templates as hidden divs as nesting script tags messes up the html.
@@ -76,7 +73,7 @@ module ActionView::Helpers
                              id: template_id(association_name),
                              class: for_template ? 'form_template' : nil,
                              style: for_template ? 'display:none' : nil ) do
-        nested_fields_wrapper(association_name, wrapper_element_type) do
+        nested_fields_wrapper(association_name, options[:wrapper]) do
           fields_for_nested_model("#{name}[#{index_placeholder(association_name)}]",
                                    association_name.to_s.classify.constantize.new,
                                    options.merge(for_template: true), block)
