@@ -15,7 +15,7 @@ module ActionView::Helpers
       fields_options, record_object = record_object, nil if record_object.is_a?(Hash) && record_object.extractable_options?
       fields_options[:builder] ||= options[:builder]
       fields_options[:parent_builder] = self
-      fields_options[:wrapper] ||= :fieldset
+      fields_options[:wrapper_tag] ||= :fieldset
       fields_options[:namespace] = fields_options[:parent_builder].options[:namespace]
 
       return fields_for_has_many_association_with_template(record_name, record_object, fields_options, block)
@@ -49,7 +49,7 @@ module ActionView::Helpers
 
       output = ActiveSupport::SafeBuffer.new
       association.each do |child|
-        output << nested_fields_wrapper(association_name, options[:wrapper]) do
+        output << nested_fields_wrapper(association_name, options[:wrapper_tag]) do
           fields_for_nested_model("#{name}[#{options[:child_index] || nested_child_index(name)}]", child, options, block)
         end
       end
@@ -73,7 +73,7 @@ module ActionView::Helpers
                              id: template_id(association_name),
                              class: for_template ? 'form_template' : nil,
                              style: for_template ? 'display:none' : nil ) do
-        nested_fields_wrapper(association_name, options[:wrapper]) do
+        nested_fields_wrapper(association_name, options[:wrapper_tag]) do
           fields_for_nested_model("#{name}[#{index_placeholder(association_name)}]",
                                    association_name.to_s.classify.constantize.new,
                                    options.merge(for_template: true), block)
