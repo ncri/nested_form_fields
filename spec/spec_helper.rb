@@ -6,7 +6,7 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 ENV["RAILS_ENV"] = 'test'
-require File.expand_path("../test_nested_form_fields/config/environment", __FILE__)
+require_relative "test_nested_form_fields/config/environment"
 require 'rspec/rails'
 require 'assert_difference'
 
