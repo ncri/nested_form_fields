@@ -15,4 +15,9 @@ Gem::Specification.new do |gem|
   gem.name          = "nested_form_fields"
   gem.require_paths = ["lib"]
   gem.version       = NestedFormFields::VERSION
+
+  gem.add_development_dependency 'rspec-rails'
+  gem.add_development_dependency 'assert_difference'
+  gem.add_development_dependency 'capybara'
+  gem.add_development_dependency 'selenium-webdriver'
 end
