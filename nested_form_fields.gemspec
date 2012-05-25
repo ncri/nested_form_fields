@@ -20,4 +20,8 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'assert_difference'
   gem.add_development_dependency 'capybara'
   gem.add_development_dependency 'selenium-webdriver'
+  gem.add_development_dependency 'sqlite3'
+  gem.add_development_dependency 'haml', '>= 3.1.5'
+  gem.add_development_dependency 'sass-rails', '~> 3.2.3'
+  gem.add_development_dependency 'coffee-rails', '~> 3.2.1'
 end
