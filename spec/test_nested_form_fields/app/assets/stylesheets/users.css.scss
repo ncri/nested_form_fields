@@ -1,0 +1,29 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.nested_fields{
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 7px;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.remove_nested_fields_link{
+  float: right;
+  text-decoration: none;
+}
+
+.new_user, .edit_user{
+  border: 1px solid grey;
+  border-radius: 5px;
+  width: 400px;
+  padding: 10px;
+  overflow: hidden;
+  margin-bottom: 80px;
+}
+
+input[type=submit]{
+  float: right;
+}

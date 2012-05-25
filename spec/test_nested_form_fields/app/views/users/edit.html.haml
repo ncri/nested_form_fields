@@ -1,0 +1,32 @@
+%h1 User
+
+= form_for @user do |f|
+  %p
+    = f.label :name
+    = f.text_field :name
+
+  %p
+    %strong Projects
+
+  = f.nested_fields_for :projects, wrapper: :div do |pf|
+    = pf.remove_nested_fields_link
+    %p
+      = pf.label :name
+      = pf.text_field :name
+    %p
+      = pf.label :description
+      = pf.text_field :description
+
+    %p
+      %strong Todos
+    = pf.nested_fields_for :todos do |tf|
+      = tf.remove_nested_fields_link
+      %p
+        = tf.label :description
+        = tf.text_field :description
+
+    = pf.add_nested_fields_link :todos
+
+  = f.add_nested_fields_link :projects
+
+  = f.submit
