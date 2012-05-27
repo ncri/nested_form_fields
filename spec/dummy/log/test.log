@@ -1,0 +1,1109 @@
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 10:24:14 +0200
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 10:25:02 +0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 4ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 10:26:26 +0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 5ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 10:28:04 +0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 4ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 10:28:41 +0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 4ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 10:37:17 +0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 4ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 10:44:13 +0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 4ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 10:47:13 +0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 4ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (47.9ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (3.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20120518212100)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120518212100')
+  [1m[36m (3.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateProjects (20120523095218)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "user_id" integer) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("projects")
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_projects_on_user_id" ON "projects" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120523095218')
+  [1m[36m (3.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateTodos (20120523095357)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "todos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar(255), "model_with_todos_id" integer, "model_with_todos_type" varchar(255)) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("todos")
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_todos_on_model_with_todos_id" ON "todos" ("model_with_todos_id")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("todos")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_todos_on_model_with_todos_id')[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_todos_on_model_with_todos_type" ON "todos" ("model_with_todos_type")
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20120523095357')[0m
+  [1m[35m (4.5ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("projects")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_projects_on_user_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("todos")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_todos_on_model_with_todos_type')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_todos_on_model_with_todos_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 10:49:38 +0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 4ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 10:50:36 +0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 4ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 11:07:02 +0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 4ms
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 11:07:35 +0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 4ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (52.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (3.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20120518212100)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120518212100')
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateProjects (20120523095218)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "user_id" integer) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("projects")
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_projects_on_user_id" ON "projects" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120523095218')
+  [1m[36m (3.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateTodos (20120523095357)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "todos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar(255), "model_with_todos_id" integer, "model_with_todos_type" varchar(255)) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("todos")
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_todos_on_model_with_todos_id" ON "todos" ("model_with_todos_id")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("todos")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_todos_on_model_with_todos_id')[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_todos_on_model_with_todos_type" ON "todos" ("model_with_todos_type")
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20120523095357')[0m
+  [1m[35m (3.2ms)[0m  commit transaction
+  [1m[36m (0.5ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("projects")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_projects_on_user_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("todos")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_todos_on_model_with_todos_type')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_todos_on_model_with_todos_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 11:11:06 +0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 107ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (126.6ms)[0m  [1mINSERT INTO "users" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 27 May 2012 09:11:09 UTC +00:00], ["name", "user name"], ["updated_at", Sun, 27 May 2012 09:11:09 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)  [["description", "p1 description"], ["name", "p1 name"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)[0m  [["description", "p2 description"], ["name", "p2 name"], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "todos" ("description", "model_with_todos_id", "model_with_todos_type") VALUES (?, ?, ?)[0m  [["description", "todo text"], ["model_with_todos_id", 1], ["model_with_todos_type", "Project"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2012-05-27 11:11:09 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 3ms
+  [1m[35m (1.2ms)[0m  rollback transaction
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 11:11:26 +0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 29ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (61.2ms)[0m  [1mINSERT INTO "users" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 27 May 2012 09:11:29 UTC +00:00], ["name", "user name"], ["updated_at", Sun, 27 May 2012 09:11:29 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)  [["description", "p1 description"], ["name", "p1 name"], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)[0m  [["description", "p2 description"], ["name", "p2 name"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "todos" ("description", "model_with_todos_id", "model_with_todos_type") VALUES (?, ?, ?)[0m  [["description", "todo text"], ["model_with_todos_id", 1], ["model_with_todos_type", "Project"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2012-05-27 11:11:29 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 5ms
+  [1m[35m (1.1ms)[0m  rollback transaction
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 11:11:44 +0200
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 81ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (9.2ms)[0m  [1mINSERT INTO "users" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 27 May 2012 09:11:46 UTC +00:00], ["name", "user name"], ["updated_at", Sun, 27 May 2012 09:11:46 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)  [["description", "p1 description"], ["name", "p1 name"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)[0m  [["description", "p2 description"], ["name", "p2 name"], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "todos" ("description", "model_with_todos_id", "model_with_todos_type") VALUES (?, ?, ?)[0m  [["description", "todo text"], ["model_with_todos_id", 1], ["model_with_todos_type", "Project"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2012-05-27 11:11:46 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 3ms
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 11:12:24 +0200
+Processing by UsersController#new as HTML
+  Rendered users/edit.html.haml within layouts/application (163.5ms)
+  Rendered layouts/_navigation.html.haml (0.9ms)
+  Rendered layouts/_messages.html.haml (1.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY name
+Completed 200 OK in 274ms (Views: 199.8ms | ActiveRecord: 67.1ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2012-05-27 11:12:25 +0200
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /Users/nico/Rails/nested_form_fields/spec/dummy/app/assets/javascripts/application.js:13)
+Served asset /application.js - 500 Internal Server Error
+
+
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2012-05-27 11:12:25 +0200
+Compiled normalize.css  (56ms)  (pid 5233)
+Compiled users.css  (5ms)  (pid 5233)
+Compiled application.css  (930ms)  (pid 5233)
+Served asset /application.css - 200 OK (957ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 11:12:26 +0200
+Processing by UsersController#new as HTML
+  Rendered users/edit.html.haml within layouts/application (12.6ms)
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY name[0m
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2012-05-27 11:12:26 +0200
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /Users/nico/Rails/nested_form_fields/spec/dummy/app/assets/javascripts/application.js:13)
+Served asset /application.js - 500 Internal Server Error
+
+
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (8.6ms)[0m  [1mINSERT INTO "users" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 27 May 2012 09:12:29 UTC +00:00], ["name", "user name"], ["updated_at", Sun, 27 May 2012 09:12:29 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)  [["description", "p1 description"], ["name", "p1 name"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)[0m  [["description", "p2 description"], ["name", "p2 name"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "todos" ("description", "model_with_todos_id", "model_with_todos_type") VALUES (?, ?, ?)[0m  [["description", "todo text"], ["model_with_todos_id", 1], ["model_with_todos_type", "Project"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2012-05-27 11:12:29 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'[0m
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 2 AND "todos"."model_with_todos_type" = 'Project'
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY name[0m
+Completed 200 OK in 30ms (Views: 27.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2012-05-27 11:12:29 +0200
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /Users/nico/Rails/nested_form_fields/spec/dummy/app/assets/javascripts/application.js:13)
+Served asset /application.js - 500 Internal Server Error
+
+
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2012-05-27 11:12:29 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35mTodo Load (0.3ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 2 AND "todos"."model_with_todos_type" = 'Project'[0m
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY name
+Completed 200 OK in 94ms (Views: 92.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2012-05-27 11:12:29 +0200
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /Users/nico/Rails/nested_form_fields/spec/dummy/app/assets/javascripts/application.js:13)
+Served asset /application.js - 500 Internal Server Error
+
+
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (1.6ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 11:13:05 +0200
+Processing by UsersController#new as HTML
+  Rendered users/edit.html.haml within layouts/application (120.4ms)
+  Rendered layouts/_navigation.html.haml (1.0ms)
+  Rendered layouts/_messages.html.haml (1.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" ORDER BY name
+Completed 200 OK in 174ms (Views: 162.8ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2012-05-27 11:13:05 +0200
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /Users/nico/Rails/nested_form_fields/spec/dummy/app/assets/javascripts/application.js:13)
+Served asset /application.js - 500 Internal Server Error
+
+
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2012-05-27 11:13:05 +0200
+Served asset /application.css - 200 OK (6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 11:13:06 +0200
+Processing by UsersController#new as HTML
+  Rendered users/edit.html.haml within layouts/application (9.4ms)
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY name[0m
+Completed 200 OK in 13ms (Views: 12.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2012-05-27 11:13:06 +0200
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /Users/nico/Rails/nested_form_fields/spec/dummy/app/assets/javascripts/application.js:13)
+Served asset /application.js - 500 Internal Server Error
+
+
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (11.4ms)[0m  [1mINSERT INTO "users" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 27 May 2012 09:13:08 UTC +00:00], ["name", "user name"], ["updated_at", Sun, 27 May 2012 09:13:08 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)  [["description", "p1 description"], ["name", "p1 name"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)[0m  [["description", "p2 description"], ["name", "p2 name"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "todos" ("description", "model_with_todos_id", "model_with_todos_type") VALUES (?, ?, ?)[0m  [["description", "todo text"], ["model_with_todos_id", 1], ["model_with_todos_type", "Project"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2012-05-27 11:13:08 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'[0m
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 2 AND "todos"."model_with_todos_type" = 'Project'
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY name[0m
+Completed 200 OK in 81ms (Views: 78.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2012-05-27 11:13:08 +0200
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /Users/nico/Rails/nested_form_fields/spec/dummy/app/assets/javascripts/application.js:13)
+Served asset /application.js - 500 Internal Server Error
+
+
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2012-05-27 11:13:08 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 2 AND "todos"."model_with_todos_type" = 'Project'[0m
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY name
+Completed 200 OK in 32ms (Views: 30.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2012-05-27 11:13:08 +0200
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /Users/nico/Rails/nested_form_fields/spec/dummy/app/assets/javascripts/application.js:13)
+Served asset /application.js - 500 Internal Server Error
+
+
+  [1m[36m (1.4ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 11:14:32 +0200
+Processing by UsersController#new as HTML
+  Rendered users/edit.html.haml within layouts/application (120.5ms)
+  Rendered layouts/_navigation.html.haml (0.7ms)
+  Rendered layouts/_messages.html.haml (1.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY name
+Completed 200 OK in 163ms (Views: 150.0ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2012-05-27 11:14:32 +0200
+Served asset /application.css - 200 OK (9ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2012-05-27 11:14:32 +0200
+Compiled jquery.js  (2ms)  (pid 5303)
+Compiled jquery_ujs.js  (0ms)  (pid 5303)
+Compiled nested_form_fields.js  (302ms)  (pid 5303)
+Compiled users.js  (107ms)  (pid 5303)
+Compiled application.js  (640ms)  (pid 5303)
+Served asset /application.js - 200 OK (660ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users" [0m
+
+
+Started POST "/users" for 127.0.0.1 at 2012-05-27 11:14:34 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"user name", "projects_attributes"=>{"0"=>{"name"=>"p1 name", "description"=>"p1 description", "todos_attributes"=>{"0"=>{"description"=>"todo text"}}}, "1"=>{"name"=>"p2 name", "description"=>"p2 description"}}}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (8.8ms)[0m  [1mINSERT INTO "users" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 27 May 2012 09:14:34 UTC +00:00], ["name", "user name"], ["updated_at", Sun, 27 May 2012 09:14:34 UTC +00:00]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)  [["description", "p1 description"], ["name", "p1 name"], ["user_id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "todos" ("description", "model_with_todos_id", "model_with_todos_type") VALUES (?, ?, ?)[0m  [["description", "todo text"], ["model_with_todos_id", 1], ["model_with_todos_type", "Project"]]
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)  [["description", "p2 description"], ["name", "p2 name"], ["user_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:54514/users/1/edit
+Completed 302 Found in 35ms (ActiveRecord: 9.6ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2012-05-27 11:14:34 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 2 AND "todos"."model_with_todos_type" = 'Project'[0m
+  Rendered users/edit.html.haml within layouts/application (25.9ms)
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY name
+Completed 200 OK in 81ms (Views: 77.5ms | ActiveRecord: 0.8ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" [0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'[0m
+  [1m[35m (1.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 27 May 2012 09:14:34 UTC +00:00], ["name", "user name"], ["updated_at", Sun, 27 May 2012 09:14:34 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)  [["description", "p1 description"], ["name", "p1 name"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)[0m  [["description", "p2 description"], ["name", "p2 name"], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "todos" ("description", "model_with_todos_id", "model_with_todos_type") VALUES (?, ?, ?)[0m  [["description", "todo text"], ["model_with_todos_id", 1], ["model_with_todos_type", "Project"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2012-05-27 11:14:34 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'[0m
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 2 AND "todos"."model_with_todos_type" = 'Project'
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY name[0m
+Completed 200 OK in 34ms (Views: 30.8ms | ActiveRecord: 0.9ms)
+
+
+Started PUT "/users/1" for 127.0.0.1 at 2012-05-27 11:14:35 +0200
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"user name", "projects_attributes"=>{"0"=>{"name"=>"new name", "description"=>"p1 description", "todos_attributes"=>{"0"=>{"_destroy"=>"1", "description"=>"todo text", "id"=>"1"}, "1"=>{"description"=>"new text"}}, "id"=>"1"}, "1"=>{"_destroy"=>"1", "name"=>"p2 name", "description"=>"p2 description", "id"=>"2"}}}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 AND "projects"."id" IN (1, 2)
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project' AND "todos"."id" IN (1)[0m
+  [1m[35m (0.2ms)[0m  UPDATE "projects" SET "name" = 'new name' WHERE "projects"."id" = 1
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 1]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "todos" ("description", "model_with_todos_id", "model_with_todos_type") VALUES (?, ?, ?)  [["description", "new text"], ["model_with_todos_id", 1], ["model_with_todos_type", "Project"]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY name[0m
+Completed 200 OK in 102ms (Views: 20.7ms | ActiveRecord: 1.9ms)
+  [1m[35mProject Load (0.4ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  [1m[36m (1.1ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 11:16:00 +0200
+Processing by UsersController#new as HTML
+  Rendered users/edit.html.haml within layouts/application (116.3ms)
+  Rendered layouts/_navigation.html.haml (0.7ms)
+  Rendered layouts/_messages.html.haml (1.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY name
+Completed 200 OK in 213ms (Views: 146.0ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2012-05-27 11:16:00 +0200
+Served asset /application.css - 200 OK (11ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2012-05-27 11:16:00 +0200
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /Users/nico/Rails/nested_form_fields/spec/dummy/app/assets/javascripts/application.js:13)
+Served asset /application.js - 500 Internal Server Error
+
+
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 11:16:01 +0200
+Processing by UsersController#new as HTML
+  Rendered users/edit.html.haml within layouts/application (9.8ms)
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY name[0m
+Completed 200 OK in 14ms (Views: 13.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2012-05-27 11:16:01 +0200
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /Users/nico/Rails/nested_form_fields/spec/dummy/app/assets/javascripts/application.js:13)
+Served asset /application.js - 500 Internal Server Error
+
+
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (8.7ms)[0m  [1mINSERT INTO "users" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 27 May 2012 09:16:03 UTC +00:00], ["name", "user name"], ["updated_at", Sun, 27 May 2012 09:16:03 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)  [["description", "p1 description"], ["name", "p1 name"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)[0m  [["description", "p2 description"], ["name", "p2 name"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "todos" ("description", "model_with_todos_id", "model_with_todos_type") VALUES (?, ?, ?)[0m  [["description", "todo text"], ["model_with_todos_id", 1], ["model_with_todos_type", "Project"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2012-05-27 11:16:03 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'[0m
+  [1m[35mTodo Load (0.5ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 2 AND "todos"."model_with_todos_type" = 'Project'
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY name[0m
+Completed 200 OK in 87ms (Views: 84.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2012-05-27 11:16:03 +0200
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /Users/nico/Rails/nested_form_fields/spec/dummy/app/assets/javascripts/application.js:13)
+Served asset /application.js - 500 Internal Server Error
+
+
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2012-05-27 11:16:03 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 2 AND "todos"."model_with_todos_type" = 'Project'[0m
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY name
+Completed 200 OK in 38ms (Views: 36.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2012-05-27 11:16:03 +0200
+Error compiling asset application.js:
+Sprockets::FileNotFound: couldn't find file 'jquery'
+  (in /Users/nico/Rails/nested_form_fields/spec/dummy/app/assets/javascripts/application.js:13)
+Served asset /application.js - 500 Internal Server Error
+
+
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 11:21:10 +0200
+Processing by UsersController#new as HTML
+  Rendered users/edit.html.haml within layouts/application (118.5ms)
+  Rendered layouts/_navigation.html.haml (0.7ms)
+  Rendered layouts/_messages.html.haml (1.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY name
+Completed 200 OK in 161ms (Views: 150.8ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2012-05-27 11:21:10 +0200
+Served asset /application.js - 200 OK (14ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2012-05-27 11:21:10 +0200
+Served asset /application.css - 200 OK (6ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users" [0m
+
+
+Started POST "/users" for 127.0.0.1 at 2012-05-27 11:21:11 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"user name", "projects_attributes"=>{"0"=>{"name"=>"p1 name", "description"=>"p1 description", "todos_attributes"=>{"0"=>{"description"=>"todo text"}}}, "1"=>{"name"=>"p2 name", "description"=>"p2 description"}}}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (12.4ms)[0m  [1mINSERT INTO "users" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 27 May 2012 09:21:11 UTC +00:00], ["name", "user name"], ["updated_at", Sun, 27 May 2012 09:21:11 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)  [["description", "p1 description"], ["name", "p1 name"], ["user_id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "todos" ("description", "model_with_todos_id", "model_with_todos_type") VALUES (?, ?, ?)[0m  [["description", "todo text"], ["model_with_todos_id", 1], ["model_with_todos_type", "Project"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)  [["description", "p2 description"], ["name", "p2 name"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:54897/users/1/edit
+Completed 302 Found in 38ms (ActiveRecord: 13.1ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2012-05-27 11:21:11 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 2 AND "todos"."model_with_todos_type" = 'Project'[0m
+  Rendered users/edit.html.haml within layouts/application (77.9ms)
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" ORDER BY name
+Completed 200 OK in 86ms (Views: 82.1ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" [0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (5.3ms)[0m  [1mINSERT INTO "users" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 27 May 2012 09:21:11 UTC +00:00], ["name", "user name"], ["updated_at", Sun, 27 May 2012 09:21:11 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)  [["description", "p1 description"], ["name", "p1 name"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)[0m  [["description", "p2 description"], ["name", "p2 name"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "todos" ("description", "model_with_todos_id", "model_with_todos_type") VALUES (?, ?, ?)[0m  [["description", "todo text"], ["model_with_todos_id", 1], ["model_with_todos_type", "Project"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2012-05-27 11:21:11 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'[0m
+  [1m[35mTodo Load (0.3ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 2 AND "todos"."model_with_todos_type" = 'Project'
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY name[0m
+Completed 200 OK in 44ms (Views: 41.5ms | ActiveRecord: 1.0ms)
+
+
+Started PUT "/users/1" for 127.0.0.1 at 2012-05-27 11:21:12 +0200
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"user name", "projects_attributes"=>{"0"=>{"name"=>"new name", "description"=>"p1 description", "todos_attributes"=>{"0"=>{"_destroy"=>"1", "description"=>"todo text", "id"=>"1"}, "1"=>{"description"=>"new text"}}, "id"=>"1"}, "1"=>{"_destroy"=>"1", "name"=>"p2 name", "description"=>"p2 description", "id"=>"2"}}}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 AND "projects"."id" IN (1, 2)
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project' AND "todos"."id" IN (1)[0m
+  [1m[35m (0.2ms)[0m  UPDATE "projects" SET "name" = 'new name' WHERE "projects"."id" = 1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 1]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "todos" ("description", "model_with_todos_id", "model_with_todos_type") VALUES (?, ?, ?)  [["description", "new text"], ["model_with_todos_id", 1], ["model_with_todos_type", "Project"]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 2]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY name[0m
+Completed 200 OK in 41ms (Views: 23.4ms | ActiveRecord: 1.9ms)
+  [1m[35mProject Load (0.3ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 11:22:57 +0200
+Processing by UsersController#new as HTML
+  Rendered users/edit.html.haml within layouts/application (119.5ms)
+  Rendered layouts/_navigation.html.haml (0.8ms)
+  Rendered layouts/_messages.html.haml (1.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY name
+Completed 200 OK in 160ms (Views: 149.6ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2012-05-27 11:22:57 +0200
+Served asset /application.js - 200 OK (14ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2012-05-27 11:22:57 +0200
+Served asset /application.css - 200 OK (7ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" [0m
+
+
+Started POST "/users" for 127.0.0.1 at 2012-05-27 11:22:58 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"user name", "projects_attributes"=>{"0"=>{"name"=>"p1 name", "description"=>"p1 description", "todos_attributes"=>{"0"=>{"description"=>"todo text"}}}, "1"=>{"name"=>"p2 name", "description"=>"p2 description"}}}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (16.9ms)[0m  [1mINSERT INTO "users" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 27 May 2012 09:22:58 UTC +00:00], ["name", "user name"], ["updated_at", Sun, 27 May 2012 09:22:58 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)  [["description", "p1 description"], ["name", "p1 name"], ["user_id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "todos" ("description", "model_with_todos_id", "model_with_todos_type") VALUES (?, ?, ?)[0m  [["description", "todo text"], ["model_with_todos_id", 1], ["model_with_todos_type", "Project"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)  [["description", "p2 description"], ["name", "p2 name"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55059/users/1/edit
+Completed 302 Found in 43ms (ActiveRecord: 17.7ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2012-05-27 11:22:59 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 2 AND "todos"."model_with_todos_type" = 'Project'[0m
+  Rendered users/edit.html.haml within layouts/application (78.1ms)
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY name
+Completed 200 OK in 87ms (Views: 82.6ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users" [0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'[0m
+  [1m[35m (1.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 27 May 2012 09:22:59 UTC +00:00], ["name", "user name"], ["updated_at", Sun, 27 May 2012 09:22:59 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)  [["description", "p1 description"], ["name", "p1 name"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)[0m  [["description", "p2 description"], ["name", "p2 name"], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "todos" ("description", "model_with_todos_id", "model_with_todos_type") VALUES (?, ?, ?)[0m  [["description", "todo text"], ["model_with_todos_id", 1], ["model_with_todos_type", "Project"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2012-05-27 11:22:59 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'[0m
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 2 AND "todos"."model_with_todos_type" = 'Project'
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY name[0m
+Completed 200 OK in 45ms (Views: 42.8ms | ActiveRecord: 0.9ms)
+
+
+Started PUT "/users/1" for 127.0.0.1 at 2012-05-27 11:23:00 +0200
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"user name", "projects_attributes"=>{"0"=>{"name"=>"new name", "description"=>"p1 description", "todos_attributes"=>{"0"=>{"_destroy"=>"1", "description"=>"todo text", "id"=>"1"}, "1"=>{"description"=>"new text"}}, "id"=>"1"}, "1"=>{"_destroy"=>"1", "name"=>"p2 name", "description"=>"p2 description", "id"=>"2"}}}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProject Load (0.3ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 AND "projects"."id" IN (1, 2)
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project' AND "todos"."id" IN (1)[0m
+  [1m[35m (0.2ms)[0m  UPDATE "projects" SET "name" = 'new name' WHERE "projects"."id" = 1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 1]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "todos" ("description", "model_with_todos_id", "model_with_todos_type") VALUES (?, ?, ?)  [["description", "new text"], ["model_with_todos_id", 1], ["model_with_todos_type", "Project"]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY name[0m
+Completed 200 OK in 47ms (Views: 23.6ms | ActiveRecord: 2.0ms)
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  [1m[36m (1.2ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 11:24:11 +0200
+Processing by UsersController#new as HTML
+  Rendered users/edit.html.haml within layouts/application (123.9ms)
+  Rendered layouts/_navigation.html.haml (1.0ms)
+  Rendered layouts/_messages.html.haml (2.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" ORDER BY name
+Completed 200 OK in 169ms (Views: 159.2ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2012-05-27 11:24:11 +0200
+Served asset /application.js - 200 OK (14ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2012-05-27 11:24:11 +0200
+Served asset /application.css - 200 OK (7ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" [0m
+
+
+Started POST "/users" for 127.0.0.1 at 2012-05-27 11:24:12 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"user name", "projects_attributes"=>{"0"=>{"name"=>"p1 name", "description"=>"p1 description", "todos_attributes"=>{"0"=>{"description"=>"todo text"}}}, "1"=>{"name"=>"p2 name", "description"=>"p2 description"}}}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (8.7ms)[0m  [1mINSERT INTO "users" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 27 May 2012 09:24:12 UTC +00:00], ["name", "user name"], ["updated_at", Sun, 27 May 2012 09:24:12 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)  [["description", "p1 description"], ["name", "p1 name"], ["user_id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "todos" ("description", "model_with_todos_id", "model_with_todos_type") VALUES (?, ?, ?)[0m  [["description", "todo text"], ["model_with_todos_id", 1], ["model_with_todos_type", "Project"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)  [["description", "p2 description"], ["name", "p2 name"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55223/users/1/edit
+Completed 302 Found in 38ms (ActiveRecord: 9.4ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2012-05-27 11:24:12 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mProject Load (0.5ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 2 AND "todos"."model_with_todos_type" = 'Project'[0m
+  Rendered users/edit.html.haml within layouts/application (81.6ms)
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY name
+Completed 200 OK in 89ms (Views: 84.7ms | ActiveRecord: 1.3ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" [0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = 1
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'[0m
+  [1m[35m (2.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 27 May 2012 09:24:13 UTC +00:00], ["name", "user name"], ["updated_at", Sun, 27 May 2012 09:24:13 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)  [["description", "p1 description"], ["name", "p1 name"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)[0m  [["description", "p2 description"], ["name", "p2 name"], ["user_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "todos" ("description", "model_with_todos_id", "model_with_todos_type") VALUES (?, ?, ?)[0m  [["description", "todo text"], ["model_with_todos_id", 1], ["model_with_todos_type", "Project"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2012-05-27 11:24:13 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'[0m
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 2 AND "todos"."model_with_todos_type" = 'Project'
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY name[0m
+Completed 200 OK in 49ms (Views: 46.5ms | ActiveRecord: 0.8ms)
+
+
+Started PUT "/users/1" for 127.0.0.1 at 2012-05-27 11:24:14 +0200
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"user name", "projects_attributes"=>{"0"=>{"name"=>"new name", "description"=>"p1 description", "todos_attributes"=>{"0"=>{"_destroy"=>"1", "description"=>"todo text", "id"=>"1"}, "1"=>{"description"=>"new text"}}, "id"=>"1"}, "1"=>{"_destroy"=>"1", "name"=>"p2 name", "description"=>"p2 description", "id"=>"2"}}}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProject Load (0.3ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 AND "projects"."id" IN (1, 2)
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project' AND "todos"."id" IN (1)[0m
+  [1m[35m (0.2ms)[0m  UPDATE "projects" SET "name" = 'new name' WHERE "projects"."id" = 1
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 1]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "todos" ("description", "model_with_todos_id", "model_with_todos_type") VALUES (?, ?, ?)  [["description", "new text"], ["model_with_todos_id", 1], ["model_with_todos_type", "Project"]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY name[0m
+Completed 200 OK in 40ms (Views: 21.2ms | ActiveRecord: 2.0ms)
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  [1m[36m (1.2ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-27 11:27:00 +0200
+Processing by UsersController#new as HTML
+  Rendered users/edit.html.haml within layouts/application (116.4ms)
+  Rendered layouts/_navigation.html.haml (0.7ms)
+  Rendered layouts/_messages.html.haml (1.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY name
+Completed 200 OK in 159ms (Views: 149.8ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/application.js" for 127.0.0.1 at 2012-05-27 11:27:01 +0200
+Served asset /application.js - 200 OK (13ms)
+
+
+Started GET "/assets/application.css" for 127.0.0.1 at 2012-05-27 11:27:01 +0200
+Served asset /application.css - 200 OK (6ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" [0m
+
+
+Started POST "/users" for 127.0.0.1 at 2012-05-27 11:27:02 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"user name", "projects_attributes"=>{"0"=>{"name"=>"p1 name", "description"=>"p1 description", "todos_attributes"=>{"0"=>{"description"=>"todo text"}}}, "1"=>{"name"=>"p2 name", "description"=>"p2 description"}}}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (11.0ms)[0m  [1mINSERT INTO "users" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 27 May 2012 09:27:02 UTC +00:00], ["name", "user name"], ["updated_at", Sun, 27 May 2012 09:27:02 UTC +00:00]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)  [["description", "p1 description"], ["name", "p1 name"], ["user_id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "todos" ("description", "model_with_todos_id", "model_with_todos_type") VALUES (?, ?, ?)[0m  [["description", "todo text"], ["model_with_todos_id", 1], ["model_with_todos_type", "Project"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)  [["description", "p2 description"], ["name", "p2 name"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:55403/users/1/edit
+Completed 302 Found in 37ms (ActiveRecord: 12.0ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2012-05-27 11:27:02 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35mTodo Load (0.2ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 2 AND "todos"."model_with_todos_type" = 'Project'[0m
+  Rendered users/edit.html.haml within layouts/application (79.9ms)
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" ORDER BY name
+Completed 200 OK in 91ms (Views: 87.6ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users" [0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'[0m
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Sun, 27 May 2012 09:27:02 UTC +00:00], ["name", "user name"], ["updated_at", Sun, 27 May 2012 09:27:02 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)  [["description", "p1 description"], ["name", "p1 name"], ["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "projects" ("description", "name", "user_id") VALUES (?, ?, ?)[0m  [["description", "p2 description"], ["name", "p2 name"], ["user_id", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "todos" ("description", "model_with_todos_id", "model_with_todos_type") VALUES (?, ?, ?)[0m  [["description", "todo text"], ["model_with_todos_id", 1], ["model_with_todos_type", "Project"]]
+  [1m[35m (12.0ms)[0m  RELEASE SAVEPOINT active_record_1
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2012-05-27 11:27:02 +0200
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1
+  [1m[36mTodo Load (0.1ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'[0m
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 2 AND "todos"."model_with_todos_type" = 'Project'
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY name[0m
+Completed 200 OK in 33ms (Views: 31.0ms | ActiveRecord: 0.9ms)
+
+
+Started PUT "/users/1" for 127.0.0.1 at 2012-05-27 11:27:03 +0200
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"user name", "projects_attributes"=>{"0"=>{"name"=>"new name", "description"=>"p1 description", "todos_attributes"=>{"0"=>{"_destroy"=>"1", "description"=>"todo text", "id"=>"1"}, "1"=>{"description"=>"new text"}}, "id"=>"1"}, "1"=>{"_destroy"=>"1", "name"=>"p2 name", "description"=>"p2 description", "id"=>"2"}}}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProject Load (1.4ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 AND "projects"."id" IN (1, 2)
+  [1m[36mTodo Load (0.2ms)[0m  [1mSELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project' AND "todos"."id" IN (1)[0m
+  [1m[35m (0.2ms)[0m  UPDATE "projects" SET "name" = 'new name' WHERE "projects"."id" = 1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 1]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "todos" ("description", "model_with_todos_id", "model_with_todos_type") VALUES (?, ?, ?)  [["description", "new text"], ["model_with_todos_id", 1], ["model_with_todos_type", "Project"]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  Rendered layouts/_navigation.html.haml (0.1ms)
+  Rendered layouts/_messages.html.haml (0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY name[0m
+Completed 200 OK in 42ms (Views: 21.2ms | ActiveRecord: 3.1ms)
+  [1m[35mProject Load (0.7ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = 1[0m
+  [1m[35mTodo Load (0.1ms)[0m  SELECT "todos".* FROM "todos" WHERE "todos"."model_with_todos_id" = 1 AND "todos"."model_with_todos_type" = 'Project'
+  [1m[36m (7.9ms)[0m  [1mrollback transaction[0m

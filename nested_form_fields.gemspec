@@ -16,6 +16,9 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = NestedFormFields::VERSION
 
+  gem.add_dependency 'rails', '>= 3.1.0'
+
+  gem.add_development_dependency 'jquery-rails'
   gem.add_development_dependency 'rspec-rails'
   gem.add_development_dependency 'assert_difference'
   gem.add_development_dependency 'capybara'

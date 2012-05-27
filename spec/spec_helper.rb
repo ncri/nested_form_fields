@@ -6,15 +6,13 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 ENV["RAILS_ENV"] = 'test'
-require_relative "test_nested_form_fields/config/environment"
+require_relative "dummy/config/environment"
+
 require 'rspec/rails'
 require 'assert_difference'
 require 'sqlite3'
 
 require 'haml'
-require 'sass/rails'
-require 'coffee-rails'
-
 
 # Add this to load Capybara integration:
 require 'capybara/rspec'
