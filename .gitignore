@@ -16,5 +16,7 @@ test/tmp
 test/version_tmp
 tmp
 .idea
-spec/test_nested_form_fields/log
-spec/test_nested_form_fields/tmp
+.sass-cache
+spec/dummy/log
+spec/dummy/tmp
+.DS_Store
