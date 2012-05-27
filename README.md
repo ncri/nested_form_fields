@@ -1,4 +1,4 @@
-# Nested Form  [![Build Status](https://secure.travis-ci.org/ncri/nested_form_fields.png)](http://travis-ci.org/ncri/nested_form_fields)
+# Nested Form Fields [![Build Status](https://secure.travis-ci.org/ncri/nested_form_fields.png)](http://travis-ci.org/ncri/nested_form_fields)
 
 This Rails gem helps creating forms for models with nested has_many associations.
 
