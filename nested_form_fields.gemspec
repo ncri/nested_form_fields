@@ -19,10 +19,10 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'rails', '>= 3.1.0'
 
   gem.add_development_dependency 'jquery-rails'
-  gem.add_development_dependency 'rspec-rails'
+  gem.add_development_dependency 'rspec-rails', '>= 2.12.2'
   gem.add_development_dependency 'assert_difference'
   gem.add_development_dependency 'capybara'
-  gem.add_development_dependency 'selenium-webdriver'
+  gem.add_development_dependency 'selenium-webdriver', '>= 2.30.0'
   gem.add_development_dependency 'sqlite3'
   gem.add_development_dependency 'haml', '>= 3.1.5'
   gem.add_development_dependency 'sass-rails', '~> 3.2.3'
