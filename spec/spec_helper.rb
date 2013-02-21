@@ -25,6 +25,7 @@ RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
   config.include AssertDifference
   config.use_transactional_fixtures = true
+  config.include Capybara::DSL
 end
 
 
