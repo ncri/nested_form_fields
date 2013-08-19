@@ -29,7 +29,6 @@ In your application.js file add:
 Assume you have a user model with nested videos:
 
     class User < ActiveRecord::Base
-      attr_accessible :name, :videos_attributes
       has_many :videos
       accepts_nested_attributes_for :videos, allow_destroy: true
     end 
