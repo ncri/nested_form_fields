@@ -1,5 +1,5 @@
-jQuery ->
-
+bind_nested_forms_links = () ->
+  $('body').off("click", '.add_nested_fields_link')
   $('body').on 'click', '.add_nested_fields_link', ->
     $link = $(this)
     association_path = $link.data('association-path')
@@ -21,7 +21,7 @@ jQuery ->
     $template.before( $parsed_template )
     false
 
-
+  $('body').off("click", '.remove_nested_fields_link')
   $('body').on 'click', '.remove_nested_fields_link', ->
     $link = $(this)
     delete_association_field_name = $link.data('delete-association-field-name')
@@ -29,3 +29,9 @@ jQuery ->
     $nested_fields_container.before "<input type='hidden' name='#{delete_association_field_name}' value='1' />"
     $nested_fields_container.hide()
     false
+
+$(document).on "page:change", ->
+    bind_nested_forms_links()
+
+jQuery ->
+    bind_nested_forms_links()
