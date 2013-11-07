@@ -16,6 +16,7 @@ module ActionView::Helpers
       fields_options[:builder] ||= options[:builder]
       fields_options[:parent_builder] = self
       fields_options[:wrapper_tag] ||= :fieldset
+      fields_options[:legend] ||= nil
       fields_options[:namespace] = fields_options[:parent_builder].options[:namespace]
 
       return fields_for_has_many_association_with_template(record_name, record_object, fields_options, block)
@@ -49,7 +50,7 @@ module ActionView::Helpers
 
       output = ActiveSupport::SafeBuffer.new
       association.each do |child|
-        output << nested_fields_wrapper(association_name, options[:wrapper_tag]) do
+        output << nested_fields_wrapper(association_name, options[:wrapper_tag], options[:legend]) do
           fields_for_nested_model("#{name}[#{options[:child_index] || nested_child_index(name)}]", child, options, block)
         end
       end
@@ -73,7 +74,7 @@ module ActionView::Helpers
                              id: template_id(association_name),
                              class: for_template ? 'form_template' : nil,
                              style: for_template ? 'display:none' : nil ) do
-        nested_fields_wrapper(association_name, options[:wrapper_tag]) do
+        nested_fields_wrapper(association_name, options[:wrapper_tag], options[:legend]) do
           fields_for_nested_model("#{name}[#{index_placeholder(association_name)}]",
                                    association_name.to_s.classify.constantize.new,
                                    options.merge(for_template: true), block)
@@ -99,9 +100,9 @@ module ActionView::Helpers
     end
 
 
-    def nested_fields_wrapper association_name, wrapper_element_type
+    def nested_fields_wrapper association_name, wrapper_element_type, legend
       @template.content_tag wrapper_element_type, class: "nested_fields nested_#{association_path(association_name)}" do
-        yield
+        (wrapper_element_type==:fieldset && !legend.nil?)? ( @template.content_tag(:legend, legend, class: "nested_fields") + yield ) : yield
       end
     end
 
