@@ -19,7 +19,7 @@ Add this line to your application's Gemfile:
 And then execute:
 
     $ bundle
-    
+
 In your application.js file add: 
 
     //= require nested_form_fields
@@ -39,7 +39,7 @@ Use the *nested_fields_for* helper inside your user form to add the video fields
       = f.nested_fields_for :videos do |ff|
         = ff.text_field :video_title
         ..
-  
+
 Links to add and remove fields can be added using the *add_nested_fields_link* and *remove_nested_fields_link* helpers:
 
     = form_for @user do |f|
@@ -48,8 +48,19 @@ Links to add and remove fields can be added using the *add_nested_fields_link* a
         = ff.text_field :video_title
         ..
       = f.add_nested_fields_link :videos
-      
+
 Note that *remove_nested_fields_link* needs to be called within the *nested_fields_for* call and *add_nested_fields_link* outside of it via the parent builder.
+There are 4 javascipt events firing before and after addition/removal of the fields in the *nested_form_fields* namespace. Namely:
+    fields_adding, fields_added, fields_removing, fields_removed
+
+CoffeeScript sample:
+
+    $(document).bind "fields_added.nested_form_fields", (event,param) ->
+        switch param.object_class
+            when "video"
+                console.log "Video object added"
+            else
+                console.log "INFO: Fields were successfully added, callback not handled."
 
 You can change the link text of *remove_nested_fields_link* and *add_nested_fields_link* like this:
 
@@ -62,8 +73,10 @@ You can change the type of the element wrapping the nested fields using the *wra
 
     = f.nested_fields_for :videos, wrapper_tag: :div do |ff|
 
-The default wrapper element is a fieldset.
-    
+The default wrapper element is a fieldset. To add legend element to the fieldset use:
+
+    = f.nested_fields_for :videos, legend: "Video" do |ff|
+
 
 ## Contributing
 
@@ -76,4 +89,5 @@ The default wrapper element is a fieldset.
 
 ## Contributers
 
-[Tom Riley](https://github.com/tomriley)
+- [Tom Riley](https://github.com/tomriley)
+- [Levente Tamas](https://github.com/tamisoft)

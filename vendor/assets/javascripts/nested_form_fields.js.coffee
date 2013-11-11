@@ -1,7 +1,11 @@
-bind_nested_forms_links = () ->
+window.nested_form_fields or= {}
+
+nested_form_fields.bind_nested_forms_links = () ->
   $('body').off("click", '.add_nested_fields_link')
   $('body').on 'click', '.add_nested_fields_link', ->
     $link = $(this)
+    object_class = $link.data('object-class')
+    $.event.trigger("fields_adding.nested_form_fields",{object_class: object_class});
     association_path = $link.data('association-path')
     $template = $("##{association_path}_template")
 
@@ -19,19 +23,23 @@ bind_nested_forms_links = () ->
       $child.replaceWith($("<script id='#{$child.attr('id')}' type='text/html' />").html($child.html()))
 
     $template.before( $parsed_template )
+    $.event.trigger("fields_added.nested_form_fields",{object_class: object_class});
     false
 
   $('body').off("click", '.remove_nested_fields_link')
   $('body').on 'click', '.remove_nested_fields_link', ->
     $link = $(this)
+    object_class = $link.data('object-class')
+    $.event.trigger("fields_removing.nested_form_fields",{object_class: object_class});
     delete_association_field_name = $link.data('delete-association-field-name')
     $nested_fields_container = $link.parents(".nested_fields").first()
     $nested_fields_container.before "<input type='hidden' name='#{delete_association_field_name}' value='1' />"
     $nested_fields_container.hide()
+    $.event.trigger("fields_removed.nested_form_fields",{object_class: object_class});
     false
 
 $(document).on "page:change", ->
-    bind_nested_forms_links()
+    nested_form_fields.bind_nested_forms_links()
 
 jQuery ->
-    bind_nested_forms_links()
+    nested_form_fields.bind_nested_forms_links()

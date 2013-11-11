@@ -26,13 +26,13 @@ module ActionView::Helpers
     def add_nested_fields_link association, text = nil
       @template.link_to text || "Add #{association.to_s.singularize.humanize}", '',
                         class: "add_nested_fields_link",
-                        data: { association_path: association_path(association.to_s) }
+                        data: { association_path: association_path(association.to_s), object_class: association.to_s.singularize }
     end
 
     def remove_nested_fields_link text = nil
       @template.link_to text || 'x', '',
                         class: "remove_nested_fields_link",
-                        data: { delete_association_field_name: delete_association_field_name }
+                        data: { delete_association_field_name: delete_association_field_name, object_class: @object.class.name.underscore.downcase }
     end
 
 
