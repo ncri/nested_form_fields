@@ -15,6 +15,7 @@ Gem::Specification.new do |gem|
   gem.name          = "nested_form_fields"
   gem.require_paths = ["lib"]
   gem.version       = NestedFormFields::VERSION
+  gem.license       = 'MIT'
 
   gem.add_dependency 'rails', '>= 3.2.0'
 
