@@ -9,6 +9,8 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 require 'jquery-rails'
+require 'haml'
+require "haml-rails"
 
 Bundler.require
 require "nested_form_fields"

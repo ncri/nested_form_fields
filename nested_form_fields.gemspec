@@ -26,6 +26,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'selenium-webdriver', '>= 2.32.1'
   gem.add_development_dependency 'sqlite3'
   gem.add_development_dependency 'haml', '>= 3.1.5'
+  gem.add_development_dependency 'haml-rails'
   gem.add_development_dependency 'sass-rails', '~> 3.2.3'
   gem.add_development_dependency 'coffee-rails', '~> 3.2.1'
 end
