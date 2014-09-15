@@ -17,7 +17,7 @@ nested_form_fields.bind_nested_forms_links = () ->
 
     # replace child template div tags with script tags to avoid form submission of templates
     $parsed_template = $(template_html)
-    $child_templates = $parsed_template.children('.form_template')
+    $child_templates = $parsed_template.closestChild('.form_template')
     $child_templates.each () ->
       $child = $(this)
       $child.replaceWith($("<script id='#{$child.attr('id')}' type='text/html' />").html($child.html()))
@@ -44,3 +44,24 @@ $(document).on "page:change", ->
 
 jQuery ->
     nested_form_fields.bind_nested_forms_links()
+
+
+#
+# * jquery.closestchild 0.1.1
+# *
+# * Author: Andrey Mikhaylov aka lolmaus
+# * Email: lolmaus@gmail.com
+# *
+#
+
+$.fn.closestChild = (selector) ->
+  $children = undefined
+  $results = undefined
+  $children = @children()
+  return $() if $children.length is 0
+  $results = $children.filter(selector)
+  if $results.length > 0
+    $results
+  else
+    $children.closestChild selector
+
