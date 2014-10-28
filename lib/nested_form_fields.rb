@@ -16,7 +16,7 @@ module ActionView::Helpers
       fields_options[:builder] ||= options[:builder]
       fields_options[:parent_builder] = self
       fields_options[:wrapper_tag] ||= :fieldset
-      fields_options[:tag_options] ||= {}
+      fields_options[:wrapper_options] ||= {}
       fields_options[:namespace] = fields_options[:parent_builder].options[:namespace]
 
       return fields_for_has_many_association_with_template(record_name, record_object, fields_options, block)
@@ -50,7 +50,7 @@ module ActionView::Helpers
 
       output = ActiveSupport::SafeBuffer.new
       association.each do |child|
-        output << nested_fields_wrapper(association_name, options[:wrapper_tag], options[:legend], options[:tag_options]) do
+        output << nested_fields_wrapper(association_name, options[:wrapper_tag], options[:legend], options[:wrapper_options]) do
           fields_for_nested_model("#{name}[#{options[:child_index] || nested_child_index(name)}]", child, options, block)
         end
       end
@@ -74,7 +74,7 @@ module ActionView::Helpers
                              id: template_id(association_name),
                              class: for_template ? 'form_template' : nil,
                              style: for_template ? 'display:none' : nil ) do
-        nested_fields_wrapper(association_name, options[:wrapper_tag], options[:legend], options[:tag_options]) do
+        nested_fields_wrapper(association_name, options[:wrapper_tag], options[:legend], options[:wrapper_options]) do
           association_class = (options[:class_name] || association_name).to_s.classify.constantize
           fields_for_nested_model("#{name}[#{index_placeholder(association_name)}]",
                                    association_class.new,
@@ -99,12 +99,18 @@ module ActionView::Helpers
       "#{object_name}[_destroy]"
     end
 
-    def nested_fields_wrapper(association_name, wrapper_element_type, legend, tag_options)
-      tag_options[:class] = "nested_fields nested_#{association_path(association_name)} " + tag_options[:class].to_s
-      @template.content_tag wrapper_element_type, tag_options do
+    def nested_fields_wrapper(association_name, wrapper_element_type, legend, wrapper_options)
+      wrapper_options = add_default_classes_to_wrapper_options(association_name, wrapper_options)
+      @template.content_tag wrapper_element_type, wrapper_options do
         (wrapper_element_type==:fieldset && !legend.nil?)? ( @template.content_tag(:legend, legend, class: "nested_fields") + yield ) : yield
       end
     end
-  end
 
+    def add_default_classes_to_wrapper_options(association_name, wrapper_options)
+      default_classes = ["nested_fields", "nested_#{association_path(association_name)}"]
+      wrapper_options[:class] = wrapper_options[:class].is_a?(String) ? wrapper_options[:class].split(" ") : wrapper_options[:class].to_a
+      wrapper_options[:class] += default_classes
+      wrapper_options
+    end
+  end
 end

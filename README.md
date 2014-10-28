@@ -66,9 +66,9 @@ The default wrapper element is a fieldset. To add legend element to the fieldset
 
     = f.nested_fields_for :videos, legend: "Video" do |ff|
 
-You can pass options like you would to the `content_tag` method by nesting them in a `:tag_options` hash:
+You can pass options like you would to the `content_tag` method by nesting them in a `:wrapper_options` hash:
 
-    = f.nested_fields_for :videos, tag_options: { class: 'row' } do |ff|
+    = f.nested_fields_for :videos, wrapper_options: { class: 'row' } do |ff|
 
 There are 4 javascipt events firing before and after addition/removal of the fields in the *nested_form_fields* namespace. Namely:
     fields_adding, fields_added, fields_removing, fields_removed.
