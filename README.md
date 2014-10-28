@@ -20,7 +20,7 @@ And then execute:
 
     $ bundle
 
-In your application.js file add: 
+In your application.js file add:
 
     //= require nested_form_fields
 
@@ -31,7 +31,7 @@ Assume you have a user model with nested videos:
     class User < ActiveRecord::Base
       has_many :videos
       accepts_nested_attributes_for :videos, allow_destroy: true
-    end 
+    end
 
 Use the *nested_fields_for* helper inside your user form to add the video fields:
 
@@ -65,7 +65,11 @@ You can change the type of the element wrapping the nested fields using the *wra
 The default wrapper element is a fieldset. To add legend element to the fieldset use:
 
     = f.nested_fields_for :videos, legend: "Video" do |ff|
-    
+
+You can pass options like you would to the `content_tag` method by nesting them in a `:tag_options` hash:
+
+    = f.nested_fields_for :videos, tag_options: { class: 'row' } do |ff|
+
 There are 4 javascipt events firing before and after addition/removal of the fields in the *nested_form_fields* namespace. Namely:
     fields_adding, fields_added, fields_removing, fields_removed.
 
