@@ -58,6 +58,13 @@ You can change the link text of *remove_nested_fields_link* and *add_nested_fiel
       ...
     f.add_nested_fields_link :videos, 'Add another funtastic video'
 
+You can add classes to the  *remove_nested_fields_link* and *add_nested_fields_link* like this:
+
+    ...
+      ff.remove_nested_fields_link 'Remove me', class: 'btn btn-danger'
+      ...
+    f.add_nested_fields_link :videos, 'Add another funtastic video', class: 'btn btn-primary'
+
 You can change the type of the element wrapping the nested fields using the *wrapper_tag* option:
 
     = f.nested_fields_for :videos, wrapper_tag: :div do |ff|
