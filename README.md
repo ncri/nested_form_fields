@@ -101,5 +101,4 @@ CoffeeScript sample:
 
 ## Contributers
 
-- [Tom Riley](https://github.com/tomriley)
-- [Levente Tamas](https://github.com/tamisoft)
+https://github.com/ncri/nested_form_fields/graphs/contributors
