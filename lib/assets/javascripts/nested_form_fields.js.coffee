@@ -5,15 +5,16 @@ nested_form_fields.bind_nested_forms_links = () ->
   $('body').on 'click', '.add_nested_fields_link', ->
     $link = $(this)
     object_class = $link.data('object-class')
-    $.event.trigger("fields_adding.nested_form_fields",{object_class: object_class});
     association_path = $link.data('association-path')
+    added_index = $(".nested_#{association_path}").length
+    $.event.trigger("fields_adding.nested_form_fields",{object_class: object_class, added_index: added_index, association_path: association_path});
     $template = $("##{association_path}_template")
 
     template_html = $template.html()
 
     # insert association indexes
     index_placeholder = "__#{association_path}_index__"
-    template_html = template_html.replace(new RegExp(index_placeholder,"g"), $(".nested_#{association_path}").length)
+    template_html = template_html.replace(new RegExp(index_placeholder,"g"), added_index)
 
     # replace child template div tags with script tags to avoid form submission of templates
     $parsed_template = $(template_html)
@@ -23,20 +24,21 @@ nested_form_fields.bind_nested_forms_links = () ->
       $child.replaceWith($("<script id='#{$child.attr('id')}' type='text/html' />").html($child.html()))
 
     $template.before( $parsed_template )
-    $.event.trigger("fields_added.nested_form_fields",{object_class: object_class});
+    $.event.trigger("fields_added.nested_form_fields",{object_class: object_class, added_index: added_index, association_path: association_path});
     false
 
   $('body').off("click", '.remove_nested_fields_link')
   $('body').on 'click', '.remove_nested_fields_link', ->
     $link = $(this)
     object_class = $link.data('object-class')
-    $.event.trigger("fields_removing.nested_form_fields",{object_class: object_class});
     delete_association_field_name = $link.data('delete-association-field-name')
+    removed_index = parseInt(delete_association_field_name.match('(\\d+\\]\\[_destroy])')[0][0])
+    $.event.trigger("fields_removing.nested_form_fields",{object_class: object_class, delete_association_field_name: delete_association_field_name, removed_index: removed_index });
     $nested_fields_container = $link.parents(".nested_fields").first()
     $nested_fields_container.before "<input type='hidden' name='#{delete_association_field_name}' value='1' />"
     $nested_fields_container.hide()
     $nested_fields_container.find('input[required]:hidden').removeAttr('required')
-    $.event.trigger("fields_removed.nested_form_fields",{object_class: object_class});
+    $.event.trigger("fields_removed.nested_form_fields",{object_class: object_class, delete_association_field_name: delete_association_field_name, removed_index: removed_index});
     false
 
 $(document).on "page:change", ->
