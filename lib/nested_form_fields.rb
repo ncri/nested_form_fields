@@ -106,7 +106,7 @@ module ActionView::Helpers
     end
 
     def nested_fields_wrapper(association_name, wrapper_element_type, legend, wrapper_options)
-      wrapper_options = add_default_classes_to_wrapper_options(association_name, wrapper_options)
+      wrapper_options = add_default_classes_to_wrapper_options(association_name, wrapper_options.clone)
       @template.content_tag wrapper_element_type, wrapper_options do
         (wrapper_element_type==:fieldset && !legend.nil?)? ( @template.content_tag(:legend, legend, class: "nested_fields") + yield ) : yield
       end
