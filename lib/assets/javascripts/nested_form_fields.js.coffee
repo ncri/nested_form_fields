@@ -24,7 +24,7 @@ nested_form_fields.bind_nested_forms_links = () ->
       $child.replaceWith($("<script id='#{$child.attr('id')}' type='text/html' />").html($child.html()))
 
     $template.before( $parsed_template )
-    $.event.trigger("fields_added.nested_form_fields",{object_class: object_class, added_index: added_index, association_path: association_path});
+    $parsed_template.trigger("fields_added.nested_form_fields", {object_class: object_class, added_index: added_index, association_path: association_path});
     false
 
   $('body').off("click", '.remove_nested_fields_link')
@@ -38,7 +38,7 @@ nested_form_fields.bind_nested_forms_links = () ->
     $nested_fields_container.before "<input type='hidden' name='#{delete_association_field_name}' value='1' />"
     $nested_fields_container.hide()
     $nested_fields_container.find('input[required]:hidden').removeAttr('required')
-    $.event.trigger("fields_removed.nested_form_fields",{object_class: object_class, delete_association_field_name: delete_association_field_name, removed_index: removed_index});
+    $nested_fields_container.trigger("fields_removed.nested_form_fields",{object_class: object_class, delete_association_field_name: delete_association_field_name, removed_index: removed_index});
     false
 
 $(document).on "page:change", ->

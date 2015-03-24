@@ -80,8 +80,19 @@ You can pass options like you would to the `content_tag` method by nesting them 
 There are 4 javascipt events firing before and after addition/removal of the fields in the *nested_form_fields* namespace. Namely:
     fields_adding, fields_added, fields_removing, fields_removed.
 
-CoffeeScript sample:
+The events fields_added and fields_removed are triggered on the element being added or removed. The events bubble up so you can listen for them on any parent element.
+This makes it easy to add listeners when you have multiple nested_form_fields on the same page.
 
+CoffeeScript samples:
+
+    # Listen on an element
+    initializeSortable -> ($el)
+      $el.sortable(...)
+      $el.on 'fields_added.nested_form_fields', -> (event, param)
+        console.log event.target # The added field
+        console.log $(this)      # $el
+
+    # Listen on document
     $(document).on "fields_added.nested_form_fields", (event,param) ->
         switch param.object_class
             when "video"
