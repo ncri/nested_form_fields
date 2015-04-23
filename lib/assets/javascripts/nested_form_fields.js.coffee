@@ -2,7 +2,7 @@ window.nested_form_fields or= {}
 
 nested_form_fields.bind_nested_forms_links = () ->
   $('body').off("click", '.add_nested_fields_link')
-  $('body').on 'click', '.add_nested_fields_link', ->
+  $('body').on 'click', '.add_nested_fields_link', (event) ->
     $link = $(this)
     object_class = $link.data('object-class')
     association_path = $link.data('association-path')
@@ -23,8 +23,11 @@ nested_form_fields.bind_nested_forms_links = () ->
       $child = $(this)
       $child.replaceWith($("<script id='#{$child.attr('id')}' type='text/html' />").html($child.html()))
 
-    $template.before( $parsed_template )
-    $parsed_template.trigger("fields_added.nested_form_fields", {object_class: object_class, added_index: added_index, association_path: association_path});
+    if (target = $link.attr('insert-into')?)
+      $('#' + target).append($parsed_template)
+    else
+      $template.before( $parsed_template )
+    $parsed_template.trigger("fields_added.nested_form_fields", {object_class: object_class, added_index: added_index, association_path: association_path, event: event});
     false
 
   $('body').off("click", '.remove_nested_fields_link')
