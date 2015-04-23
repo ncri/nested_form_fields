@@ -9,7 +9,7 @@ nested_form_fields.bind_nested_forms_links = () ->
     added_index = $(".nested_#{association_path}").length
     $.event.trigger("fields_adding.nested_form_fields",{object_class: object_class, added_index: added_index, association_path: association_path});
     $template = $("##{association_path}_template")
-    target = $link.attr('insert-into')
+    target = $link.attr('data-insert-into')
     
     template_html = $template.html()
 
