@@ -24,7 +24,7 @@ nested_form_fields.bind_nested_forms_links = () ->
       $child = $(this)
       $child.replaceWith($("<script id='#{$child.attr('id')}' type='text/html' />").html($child.html()))
 
-    if (target?)
+    if target?
       $('#' + target).append($parsed_template)
     else
       $template.before( $parsed_template )
