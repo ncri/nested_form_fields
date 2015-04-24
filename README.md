@@ -77,6 +77,29 @@ You can pass options like you would to the `content_tag` method by nesting them 
 
     = f.nested_fields_for :videos, wrapper_options: { class: 'row' } do |ff|
 
+If you are using Rails 4 remember to add << NESTED_MODEL >>_attributes and the attributes to the permitted params. 
+Also, if you want to destroy the nested model you should add :_destroy and :id.
+For example:
+
+    # app/views/users/_form.haml.erb
+    = form_for @user do |f|
+      = f.nested_fields_for :videos do |ff|
+        = ff.remove_nested_fields_link
+        = ff.text_field :video_title
+        ..
+      = f.add_nested_fields_link :videos
+      
+    # app/controllers/users_controller
+    ..
+    def user_params
+        params.require(:user)
+            .permit(:name,:email,videos_attributes:[:video_title,:_destroy,:id])
+    #                            ^^^                 ^^^           ^^^
+    #                            nested model attrs  
+    #                                                             they will let you delete the nested model                    
+    end
+
+
 There are 4 javascipt events firing before and after addition/removal of the fields in the *nested_form_fields* namespace. Namely:
     fields_adding, fields_added, fields_removing, fields_removed.
 
