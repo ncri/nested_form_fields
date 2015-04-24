@@ -23,22 +23,34 @@ module ActionView::Helpers
     end
 
 
-    def add_nested_fields_link association, text = nil, html_options = {}
+    def add_nested_fields_link association, text = nil, html_options = {}, &block
       html_class = html_options.delete(:class) || {}
       html_data = html_options.delete(:data) || {}
-      @template.link_to text || "Add #{association.to_s.singularize.humanize}", '', {
-                        class: "#{html_class} add_nested_fields_link",
-                        data: { association_path: association_path(association.to_s), object_class: association.to_s.singularize }.merge(html_data)
-                        }.merge(html_options)
+
+      args = []
+      args << (text || "Add #{association.to_s.singularize.humanize}") unless block_given?
+      args << ''
+      args << { class: "#{html_class} add_nested_fields_link",
+                data: { association_path: association_path(association.to_s),
+                        object_class: association.to_s.singularize }.merge(html_data)
+              }.merge(html_options)
+
+      @template.link_to *args, &block
     end
 
-    def remove_nested_fields_link text = nil, html_options = {}
+    def remove_nested_fields_link text = nil, html_options = {}, &block
       html_class = html_options.delete(:class) || {}
       html_data = html_options.delete(:data) || {}
-      @template.link_to text || 'x', '', {
-                        class: "#{html_class} remove_nested_fields_link",
-                        data: { delete_association_field_name: delete_association_field_name, object_class: @object.class.name.underscore.downcase }.merge(html_data)
-                        }.merge(html_options)
+
+      args = []
+      args << (text || 'x') unless block_given?
+      args << ''
+      args << { class: "#{html_class} remove_nested_fields_link",
+                data: { delete_association_field_name: delete_association_field_name,
+                        object_class: @object.class.name.underscore.downcase }.merge(html_data)
+              }.merge(html_options)
+
+      @template.link_to *args, &block
     end
 
 
