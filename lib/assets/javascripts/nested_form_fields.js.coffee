@@ -10,7 +10,7 @@ nested_form_fields.bind_nested_forms_links = () ->
     $.event.trigger("fields_adding.nested_form_fields",{object_class: object_class, added_index: added_index, association_path: association_path});
     $template = $("##{association_path}_template")
     target = $link.attr('data-insert-into')
-    
+
     template_html = $template.html()
 
     # insert association indexes
@@ -34,6 +34,7 @@ nested_form_fields.bind_nested_forms_links = () ->
   $('body').off("click", '.remove_nested_fields_link')
   $('body').on 'click', '.remove_nested_fields_link', ->
     $link = $(this)
+    return false unless $.rails.allowAction($link)
     object_class = $link.data('object-class')
     delete_association_field_name = $link.data('delete-association-field-name')
     removed_index = parseInt(delete_association_field_name.match('(\\d+\\]\\[_destroy])')[0][0])
@@ -70,4 +71,3 @@ $.fn.closestChild = (selector) ->
     $results
   else
     $children.closestChild selector
-
