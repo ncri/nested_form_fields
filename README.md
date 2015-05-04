@@ -64,6 +64,19 @@ You can add classes/attributes to the  *remove_nested_fields_link* and *add_nest
       ff.remove_nested_fields_link 'Remove me', class: 'btn btn-danger', role: 'button'
       ...
     f.add_nested_fields_link :videos, 'Add another funtastic video', class: 'btn btn-primary', role: 'button'
+    
+You can supply a block to the `remove_nested_fields_link` and the `add_nested_fields_link` helpers, as you can with `link_to`:
+
+```haml
+= ff.remove_nested_fields_link
+  Remove me %span.icon-trash
+```
+
+You can add a `data-confirm` attribute to the `remove_nested_fields_link` if you want the user to confirm whenever they remove a nested field: 
+
+```haml
+= ff.remove_nested_fields_link 'Remove me', data: { confirm: 'Are you sure?' }
+```
 
 You can change the type of the element wrapping the nested fields using the *wrapper_tag* option:
 
