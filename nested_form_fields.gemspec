@@ -18,8 +18,9 @@ Gem::Specification.new do |gem|
   gem.license       = 'MIT'
 
   gem.add_dependency 'rails', '>= 3.2.0'
+  gem.add_dependency 'coffee-rails', '~> 3.2.1'
+  gem.add_dependency 'jquery-rails'
 
-  gem.add_development_dependency 'jquery-rails'
   gem.add_development_dependency 'rspec-rails', '2.9.0'
   gem.add_development_dependency 'assert_difference'
   gem.add_development_dependency 'capybara'
@@ -28,5 +29,4 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'haml', '>= 3.1.5'
   gem.add_development_dependency 'haml-rails'
   gem.add_development_dependency 'sass-rails', '~> 3.2.3'
-  gem.add_development_dependency 'coffee-rails', '~> 3.2.1'
 end
