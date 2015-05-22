@@ -18,7 +18,7 @@ Gem::Specification.new do |gem|
   gem.license       = 'MIT'
 
   gem.add_dependency 'rails', '>= 3.2.0'
-  gem.add_dependency 'coffee-rails', '~> 3.2.1'
+  gem.add_dependency 'coffee-rails', '>= 3.2.1'
   gem.add_dependency 'jquery-rails'
 
   gem.add_development_dependency 'rspec-rails', '2.9.0'
