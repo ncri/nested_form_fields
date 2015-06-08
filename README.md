@@ -129,7 +129,7 @@ CoffeeScript samples:
         console.log $(this)      # $el
 
     # Listen on document
-    $(document).on "fields_added.nested_form_fields", (event,param) ->
+    $(document).on "fields_added.nested_form_fields", (event, param) ->
       switch param.object_class
         when "video"
           console.log "Video object added"
