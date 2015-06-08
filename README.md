@@ -116,7 +116,7 @@ For example:
 There are 4 javascipt events firing before and after addition/removal of the fields in the *nested_form_fields* namespace. Namely:
     fields_adding, fields_added, fields_removing, fields_removed.
 
-The events fields_added and fields_removed are triggered on the element being added or removed. The events bubble up so you can listen for them on any parent element.
+The events `fields_added` and `fields_removed` are triggered on the element being added or removed. The events bubble up so you can listen for them on any parent element.
 This makes it easy to add listeners when you have multiple nested_form_fields on the same page.
 
 CoffeeScript samples:
@@ -124,7 +124,7 @@ CoffeeScript samples:
     # Listen on an element
     initializeSortable -> ($el)
       $el.sortable(...)
-      $el.on 'fields_added.nested_form_fields', -> (event, param)
+      $el.on 'fields_added.nested_form_fields', (event, param) -> 
         console.log event.target # The added field
         console.log $(this)      # $el
 
