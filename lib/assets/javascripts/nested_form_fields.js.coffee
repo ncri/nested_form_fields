@@ -37,7 +37,7 @@ nested_form_fields.bind_nested_forms_links = () ->
     return false unless $.rails.allowAction($link)
     object_class = $link.data('object-class')
     delete_association_field_name = $link.data('delete-association-field-name')
-    removed_index = parseInt(delete_association_field_name.match('(\\d+\\]\\[_destroy])')[0][0])
+    removed_index = parseInt(delete_association_field_name.match('(\\d+\\]\\[_destroy])')[0].match('\\d+')[0])
     $.event.trigger("fields_removing.nested_form_fields",{object_class: object_class, delete_association_field_name: delete_association_field_name, removed_index: removed_index });
     $nested_fields_container = $link.parents(".nested_fields").first()
     $nested_fields_container.before "<input type='hidden' name='#{delete_association_field_name}' value='1' />"
