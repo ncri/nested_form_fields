@@ -45,7 +45,7 @@ module ActionView::Helpers
       args = []
       args << (text || 'x') unless block_given?
       args << ''
-      args << { class: "#{html_class} remove_nested_fields_link",
+      args << { class: "#{html_class.empty? ? '' : html_class} remove_nested_fields_link",
                 data: { delete_association_field_name: delete_association_field_name,
                         object_class: @object.class.name.underscore.downcase }.merge(html_data)
               }.merge(html_options)
