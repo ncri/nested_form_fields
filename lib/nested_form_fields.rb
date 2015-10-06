@@ -30,7 +30,7 @@ module ActionView::Helpers
       args = []
       args << (text || "Add #{association.to_s.singularize.humanize}") unless block_given?
       args << ''
-      args << { class: "#{html_class} add_nested_fields_link",
+      args << { class: "#{html_class.empty? ? '' : html_class} add_nested_fields_link",
                 data: { association_path: association_path(association.to_s),
                         object_class: association.to_s.singularize }.merge(html_data)
               }.merge(html_options)
