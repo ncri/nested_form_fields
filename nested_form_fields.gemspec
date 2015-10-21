@@ -5,7 +5,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Nico Ritsche"]
   gem.email         = ["ncrdevmail@gmail.com"]
   gem.description   = %q{Rails gem for dynamically adding and removing nested has_many association fields in a form.
-                         Uses jQuery and supports multiple nesting levels. Requires Ruby 1.9 and the asset pipeline.}
+                         Uses jQuery and supports multiple nesting levels. Requires Ruby 1.9+ and the asset pipeline.}
   gem.summary       = %q{Rails gem for dynamically adding and removing nested has_many association fields in a form.}
   gem.homepage      = ""
 
@@ -29,4 +29,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'haml', '>= 3.1.5'
   gem.add_development_dependency 'haml-rails'
   gem.add_development_dependency 'sass-rails', '~> 3.2.3'
+  gem.add_development_dependency 'test-unit', '1.2.3'
 end
