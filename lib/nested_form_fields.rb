@@ -68,11 +68,9 @@ module ActionView::Helpers
 
       output = ActiveSupport::SafeBuffer.new
       association.each do |child|
-        wrapper_options = options[:wrapper_options].clone || {}
+        wrapper_options = options[:wrapper_options].clone || {}
         if child._destroy == true
-          wrapper_options[:style] = wrapper_options[:style] ?
-                                      wrapper_options[:style] + ';' + 'display:none' :
-                                      'display:none'
+          wrapper_options[:style] = wrapper_options[:style] ? wrapper_options[:style] + ';' + 'display:none' : 'display:none'
         end
         output << nested_fields_wrapper(association_name, options[:wrapper_tag], options[:legend], wrapper_options) do
           fields_for_nested_model("#{name}[#{options[:child_index] || nested_child_index(name)}]", child, options, block)
