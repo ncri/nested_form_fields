@@ -6,9 +6,13 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 ENV["RAILS_ENV"] = 'test'
-require File.expand_path("../test_nested_form_fields/config/environment", __FILE__)
+require_relative "dummy/config/environment"
+
 require 'rspec/rails'
 require 'assert_difference'
+require 'sqlite3'
+
+require 'haml'
 
 # Add this to load Capybara integration:
 require 'capybara/rspec'
@@ -21,6 +25,7 @@ RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
   config.include AssertDifference
   config.use_transactional_fixtures = true
+  config.include Capybara::DSL
 end
 
 

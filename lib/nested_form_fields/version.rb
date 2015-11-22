@@ -1,3 +1,3 @@
 module NestedFormFields
-  VERSION = "0.0.9"
+  VERSION = "0.7.3"
 end
