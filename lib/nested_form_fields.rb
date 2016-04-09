@@ -97,7 +97,7 @@ module ActionView::Helpers
                              class: for_template ? 'form_template' : nil,
                              style: for_template ? 'display:none' : nil ) do
         nested_fields_wrapper(association_name, options[:wrapper_tag], options[:legend], options[:wrapper_options]) do
-          association_class = (options[:class_name] || association_name).to_s.classify.constantize
+          association_class = (options[:class_name] || object.public_send(association_name).klass.name).to_s.classify.constantize
           fields_for_nested_model("#{name}[#{index_placeholder(association_name)}]",
                                    association_class.new,
                                    options.merge(for_template: true), block)
