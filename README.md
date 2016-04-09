@@ -177,16 +177,6 @@ $(document).on "fields_added.nested_form_fields", (event, param) ->
       console.log "INFO: Fields were successfully added, callback not handled."
 ```
 
-## Namespaced Associations
-
-In case your has_many association is namespaced, you need to add the `class_name` parameter to `nested_fields_for`.
-Example:
-
-```haml
-= form_for @user do |f|
-  = f.nested_fields_for :videos, class_name: "Medium::Video" do |ff|
-  ...
-```
 
 ## Contributing
 
