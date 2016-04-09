@@ -3,6 +3,9 @@ rvm:
   - 2.0.0
   - 2.1.7
   - 2.2.3
+
+before_install: gem install bundler -v 1.11.2 
+
 before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
