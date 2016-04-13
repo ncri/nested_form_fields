@@ -26,6 +26,7 @@ RSpec.configure do |config|
   config.include AssertDifference
   config.use_transactional_fixtures = true
   config.include Capybara::DSL
+  config.infer_spec_type_from_file_location!
 end
 
 
