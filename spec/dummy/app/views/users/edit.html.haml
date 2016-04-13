@@ -20,7 +20,8 @@
     %p
       %strong Todos
     = pf.nested_fields_for :todos do |tf|
-      = tf.remove_nested_fields_link
+      = tf.remove_nested_fields_link class: 'test_class' do
+        = 'x'
       %p
         = tf.label :description
         = tf.text_field :description

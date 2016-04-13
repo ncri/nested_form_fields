@@ -24,6 +24,7 @@ module ActionView::Helpers
 
 
     def add_nested_fields_link association, text = nil, html_options = {}, &block
+      html_options, text = text, nil if block_given? && text.is_a?(Hash)
       html_class = html_options.delete(:class) || {}
       html_data = html_options.delete(:data) || {}
 
@@ -39,6 +40,7 @@ module ActionView::Helpers
     end
 
     def remove_nested_fields_link text = nil, html_options = {}, &block
+      html_options, text = text, nil if block_given? && text.is_a?(Hash)
       html_class = html_options.delete(:class) || {}
       html_data = html_options.delete(:data) || {}
 

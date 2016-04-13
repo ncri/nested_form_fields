@@ -51,7 +51,7 @@ describe 'a form with nested projects with nested todos', :js => true do
     visit edit_user_path(user)
 
     page.should have_css('fieldset.nested_user_projects_0_todos')
-    page.find('.nested_user_projects_0_todos .remove_nested_fields_link').click
+    page.find('.nested_user_projects_0_todos .remove_nested_fields_link.test_class').click
     page.should_not have_css('fieldset.nested_user_projects_0_todos')
 
     page.all('.nested_user_projects .remove_nested_fields_link').count.should == 2
