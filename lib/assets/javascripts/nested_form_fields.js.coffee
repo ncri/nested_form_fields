@@ -19,6 +19,8 @@ nested_form_fields.bind_nested_forms_links = () ->
     # insert association indexes
     index_placeholder = "__#{association_path}_index__"
     template_html = template_html.replace(new RegExp(index_placeholder,"g"), added_index)
+	# look for replacements in user defined code and substitute with the index
+    template_html = template_html.replace(new RegExp("__nested_field_for_replace_with_index__","g"), added_index)
 
     # replace child template div tags with script tags to avoid form submission of templates
     $parsed_template = $(template_html)
