@@ -2,12 +2,12 @@ window.nested_form_fields or= {}
 
 nested_form_fields.bind_nested_forms_links = () ->
   $('body').off("click", '.add_nested_fields_link')
-  $('body').on 'click', '.add_nested_fields_link', (event) ->
+  $('body').on 'click', '.add_nested_fields_link', (event, additional_data) ->
     $link = $(this)
     object_class = $link.data('object-class')
     association_path = $link.data('association-path')
     added_index = $(".nested_#{association_path}").length
-    $.event.trigger("fields_adding.nested_form_fields",{object_class: object_class, added_index: added_index, association_path: association_path});
+    $.event.trigger("fields_adding.nested_form_fields",{object_class: object_class, added_index: added_index, association_path: association_path, additional_data: additional_data});
     if $link.data('scope')
       $template = $("#{$link.data('scope')} ##{association_path}_template")
     else
@@ -33,7 +33,7 @@ nested_form_fields.bind_nested_forms_links = () ->
       $('#' + target).append($parsed_template)
     else
       $template.before( $parsed_template )
-    $parsed_template.trigger("fields_added.nested_form_fields", {object_class: object_class, added_index: added_index, association_path: association_path, event: event});
+    $parsed_template.trigger("fields_added.nested_form_fields", {object_class: object_class, added_index: added_index, association_path: association_path, event: event, additional_data: additional_data});
     false
 
   $('body').off("click", '.remove_nested_fields_link')
