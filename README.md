@@ -194,7 +194,7 @@ Sometimes your code needs to know what index it has when it is instantiated onto
 HTML data elements may need point to other form elements for instance.   This is needed for integration
 with rails3-jquery-autocomplete.  
 
-To enable string substitution with the current index use the magic string '__nested_field_for_replace_with_index__'
+To enable string substitution with the current index use the magic string '__nested_field_for_replace_with_index__'.
 
 ## Contributing
 
