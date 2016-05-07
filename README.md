@@ -177,6 +177,17 @@ $(document).on "fields_added.nested_form_fields", (event, param) ->
       console.log "INFO: Fields were successfully added, callback not handled."
 ```
 
+You can pass any additional data to the event's callback. This may be useful if you trigger them programmatically. Example:
+
+```coffeescript
+# Trigger button click programmatically and pass an object `{hello: 'world'}`
+$('.add_nested_fields_link').trigger('click', [{hello: 'world'}])
+
+# Listen for the event
+$(document).on "fields_added.nested_form_fields", (event, param) ->
+  console.log param.additional_data #=> {hello: 'world'}
+```
+
 
 ## Contributing
 
