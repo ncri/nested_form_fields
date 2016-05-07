@@ -188,6 +188,13 @@ $(document).on "fields_added.nested_form_fields", (event, param) ->
   console.log param.additional_data #=> {hello: 'world'}
 ```
 
+## Index replacement string
+
+Sometimes your code needs to know what index it has when it is instantiated onto the page.   
+HTML data elements may need point to other form elements for instance.   This is needed for integration
+with rails3-jquery-autocomplete.  
+
+To enable string substitution with the current index use the magic string '__nested_field_for_replace_with_index__'
 
 ## Contributing
 

@@ -69,13 +69,15 @@ module ActionView::Helpers
       end
 
       output = ActiveSupport::SafeBuffer.new
-      association.each do |child|
+      association.each_with_index do |child, index|
         wrapper_options = options[:wrapper_options].clone || {}
         if child._destroy == true
           wrapper_options[:style] = wrapper_options[:style] ? wrapper_options[:style] + ';' + 'display:none' : 'display:none'
         end
         output << nested_fields_wrapper(association_name, options[:wrapper_tag], options[:legend], wrapper_options) do
-          fields_for_nested_model("#{name}[#{options[:child_index] || nested_child_index(name)}]", child, options, block)
+          new_block = fields_for_nested_model("#{name}[#{options[:child_index] || nested_child_index(name)}]", child, options, block)
+          # do substitution in user defined blocks with the current index allows JS functions to have proper references
+          new_block.gsub('__nested_field_for_replace_with_index__', index.to_s).html_safe
         end
       end
 
