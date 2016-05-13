@@ -15,7 +15,7 @@ module ActionView::Helpers
       fields_options, record_object = record_object, nil if record_object.is_a?(Hash) && record_object.extractable_options?
       fields_options[:builder] ||= options[:builder]
       fields_options[:parent_builder] = self
-      fields_options[:wrapper_tag] ||= :fieldset
+      fields_options[:wrapper_tag] ||= :fieldset unless fields_options.has_key? :wrapper_tag
       fields_options[:wrapper_options] ||= {}
       fields_options[:namespace] = fields_options[:parent_builder].options[:namespace]
 
@@ -126,9 +126,13 @@ module ActionView::Helpers
     end
 
     def nested_fields_wrapper(association_name, wrapper_element_type, legend, wrapper_options)
-      wrapper_options = add_default_classes_to_wrapper_options(association_name, wrapper_options.clone)
-      @template.content_tag wrapper_element_type, wrapper_options do
-        (wrapper_element_type==:fieldset && !legend.nil?)? ( @template.content_tag(:legend, legend, class: "nested_fields") + yield ) : yield
+      if wrapper_element_type.nil?
+        yield
+      else
+        wrapper_options = add_default_classes_to_wrapper_options(association_name, wrapper_options.clone)
+        @template.content_tag wrapper_element_type, wrapper_options do
+          (wrapper_element_type==:fieldset && !legend.nil?)? ( @template.content_tag(:legend, legend, class: "nested_fields") + yield ) : yield
+        end
       end
     end
 
