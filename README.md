@@ -80,7 +80,7 @@ f.add_nested_fields_link :videos, 'Add another funtastic video', class: 'btn btn
 You can supply a block to the `remove_nested_fields_link` and the `add_nested_fields_link` helpers, as you can with `link_to`:
 
 ```haml
-= ff.remove_nested_fields_link
+= ff.remove_nested_fields_link do
   Remove me %span.icon-trash
 ```
 
@@ -141,8 +141,8 @@ def user_params
     params.require(:user)
         .permit(:name,:email,videos_attributes:[:video_title,:_destroy,:id])
 #                            ^^^                 ^^^           ^^^
-#                            nested model attrs  
-#                                                             they will let you delete the nested model                    
+#                            nested model attrs
+#                                                             they will let you delete the nested model
 end
 ```
 
@@ -190,9 +190,9 @@ $(document).on "fields_added.nested_form_fields", (event, param) ->
 
 ## Index replacement string
 
-Sometimes your code needs to know what index it has when it is instantiated onto the page.   
+Sometimes your code needs to know what index it has when it is instantiated onto the page.
 HTML data elements may need point to other form elements for instance.   This is needed for integration
-with rails3-jquery-autocomplete.  
+with rails3-jquery-autocomplete.
 
 To enable string substitution with the current index use the magic string '\__nested_field_for_replace_with_index\__'.
 
