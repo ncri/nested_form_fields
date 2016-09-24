@@ -73,6 +73,7 @@ module ActionView::Helpers
         wrapper_options = options[:wrapper_options].clone || {}
         if child._destroy == true
           wrapper_options[:style] = wrapper_options[:style] ? wrapper_options[:style] + ';' + 'display:none' : 'display:none'
+          output << destroy_hidden_field(association_name, index)
         end
         output << nested_fields_wrapper(association_name, options[:wrapper_tag], options[:legend], wrapper_options) do
           new_block = fields_for_nested_model("#{name}[#{options[:child_index] || nested_child_index(name)}]", child, options, block)
@@ -130,6 +131,11 @@ module ActionView::Helpers
       @template.content_tag wrapper_element_type, wrapper_options do
         (wrapper_element_type==:fieldset && !legend.nil?)? ( @template.content_tag(:legend, legend, class: "nested_fields") + yield ) : yield
       end
+    end
+
+    def destroy_hidden_field(association_name, index)
+      @template.hidden_field "#{object_name}[#{association_name}_attributes][#{index}]",
+                             :_destroy, value: 1
     end
 
     def add_default_classes_to_wrapper_options(association_name, wrapper_options)
