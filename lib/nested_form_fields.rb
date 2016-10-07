@@ -115,7 +115,7 @@ module ActionView::Helpers
     end
 
     def association_path association_name
-      "#{object_name.gsub('][','_').gsub(/_attributes/,'').sub('[','_').sub(']','')}_#{association_name}"
+      "#{object_name.to_s.gsub('][','_').gsub(/_attributes/,'').sub('[','_').sub(']','')}_#{association_name}"
     end
 
     def index_placeholder association_name
