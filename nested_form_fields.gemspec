@@ -30,4 +30,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'haml-rails'
   gem.add_development_dependency 'sass-rails', '~> 3.2.3'
   gem.add_development_dependency 'test-unit', '1.2.3'
+  gem.add_development_dependency 'public_suffix', '~> 1.4.6'
 end
