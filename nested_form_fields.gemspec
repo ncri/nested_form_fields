@@ -21,7 +21,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'coffee-rails', '>= 3.2.1'
   gem.add_dependency 'jquery-rails'
 
-  gem.add_development_dependency 'rspec-rails', '~> 2.9'
+  gem.add_development_dependency 'rspec-rails', '~> 3.5'
   gem.add_development_dependency 'assert_difference'
   gem.add_development_dependency 'capybara'
   gem.add_development_dependency 'selenium-webdriver', '2.53.4'
