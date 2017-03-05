@@ -6,7 +6,12 @@ nested_form_fields.bind_nested_forms_links = () ->
     $link = $(this)
     object_class = $link.data('object-class')
     association_path = $link.data('association-path')
-    added_index = $(".nested_#{association_path}").length
+    existing_attributes = $(this).parents('form').eq(0).find("[id^=\"#{association_path}_attributes\"]")
+    if existing_attributes.length > 0
+      max_index = Math.max.apply(Math, existing_attributes.map(-> parseInt(this.id.replace(association_path + '_attributes_', '').split('/')[0])))
+      added_index = max_index + 1
+    else
+      added_index = 0
     $.event.trigger("fields_adding.nested_form_fields",{object_class: object_class, added_index: added_index, association_path: association_path, additional_data: additional_data});
     if $link.data('scope')
       $template = $("#{$link.data('scope')} ##{association_path}_template")
