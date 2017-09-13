@@ -51,7 +51,7 @@ nested_form_fields.bind_nested_forms_links = () ->
     else
       $nested_fields_container.before "<input type='hidden' name='#{delete_association_field_name}' value='1' />"
     $nested_fields_container.hide()
-    $nested_fields_container.find('input[required]:hidden').removeAttr('required')
+    $nested_fields_container.find('input[required]:hidden, select[required]:hidden, textarea[required]:hidden').removeAttr('required')
     $nested_fields_container.trigger("fields_removed.nested_form_fields",{object_class: object_class, delete_association_field_name: delete_association_field_name, removed_index: removed_index});
     false
 
