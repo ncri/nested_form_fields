@@ -28,7 +28,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'selenium-webdriver', '> 3.0.5'
   gem.add_development_dependency 'sqlite3'
   gem.add_development_dependency 'haml', '>= 3.1.5'
-  gem.add_development_dependency 'haml-rails'
+  gem.add_development_dependency 'haml-rails ~> 1.0'
   gem.add_development_dependency 'sass-rails', '~> 3.2.3'
   gem.add_development_dependency 'test-unit', '1.2.3'
   gem.add_development_dependency 'public_suffix', '~> 1.4.6'
