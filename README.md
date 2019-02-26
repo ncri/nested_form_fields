@@ -24,6 +24,23 @@ In your application.js file add:
 
     //= require nested_form_fields
 
+### Rails 5.1+
+
+You will need to install jQuery as Rails dropped it from its default stack.
+
+Add to Gemfile:
+
+    gem 'jquery-rails'
+
+Execute:
+
+    $ bundle
+
+Add to application.js:
+
+    //= require jquery3
+    //= require jquery_ujs
+
 ## Usage
 
 Assume you have a user model with nested videos:
