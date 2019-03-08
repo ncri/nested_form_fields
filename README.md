@@ -14,15 +14,21 @@ It uses jQuery to dynamically add and remove nested associations.
 
 Add this line to your application's Gemfile:
 
-    gem 'nested_form_fields'
+```ruby
+gem 'nested_form_fields'
+```
 
 And then execute:
 
-    $ bundle
+```console
+$ bundle
+```
 
 In your application.js file add:
 
-    //= require nested_form_fields
+```javascript
+//= require nested_form_fields
+```
 
 ### Rails 5.1+
 
@@ -30,16 +36,22 @@ You will need to install jQuery as Rails dropped it from its default stack.
 
 Add to Gemfile:
 
-    gem 'jquery-rails'
+```ruby
+gem 'jquery-rails'
+```
 
 Execute:
 
-    $ bundle
+```console
+$ bundle
+```
 
 Add to application.js:
 
-    //= require jquery3
-    //= require jquery_ujs
+```javascript
+//= require jquery3
+//= require jquery_ujs
+```
 
 ## Usage
 
