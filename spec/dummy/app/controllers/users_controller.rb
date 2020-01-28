@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes params[:user]
+    if @user.update_attributes params.require(:user)
       flash.now[:notice] = 'User saved'
     end
     render :edit
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
 
   def create
-    @user = User.new(params[:user])
+    @user = User.new(params.require(:user).permit(:name))
     if @user.save
       flash[:notice] = 'User Created'
       redirect_to edit_user_path(@user)
