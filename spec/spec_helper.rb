@@ -30,6 +30,9 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.include Capybara::DSL
   config.infer_spec_type_from_file_location!
+
+  # Silence deprecation warnings
+  config.expect_with(:rspec) { |c| c.syntax = :should }
 end
 
 
