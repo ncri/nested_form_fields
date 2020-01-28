@@ -3,6 +3,8 @@
 source "https://rubygems.org"
 
 gem "activeresource"
+gem "haml"
+gem "haml-rails"
 gem "puma"
 gem "rails", "~> 5.2.4.1"
 gem "sassc-rails"
