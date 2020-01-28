@@ -67,6 +67,7 @@ describe 'a form with nested projects with nested todos', :js => true do
 
     click_on 'Update User'
 
+    user.reload
     projects = user.projects
     todos = projects.first.todos
     projects.count.should == 1
