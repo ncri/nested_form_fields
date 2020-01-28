@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
 
   def update
-    $stderr.puts(params.to_h)
+    $stderr.puts(params.permit!.to_h)
     @user = User.find(params[:id])
     if @user.update_attributes params.require(:user).permit(:name, projects_attributes: [:name, :description, todos_attributes: [:description]])
       flash.now[:notice] = 'User saved'
