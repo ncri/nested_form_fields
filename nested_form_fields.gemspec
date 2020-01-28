@@ -23,7 +23,6 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency 'appraisal'
   gem.add_development_dependency 'rspec-rails', '~> 3.5'
-  gem.add_development_dependency 'nokogiri' #, '1.6.8.1'
   gem.add_development_dependency 'assert_difference'
   gem.add_development_dependency 'capybara'
   gem.add_development_dependency 'geckodriver-helper'
@@ -32,5 +31,4 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'haml-rails' # , '~> 0.4.0'
   gem.add_development_dependency 'sass-rails' # , '~> 3.2.3'
   gem.add_development_dependency 'test-unit', '1.2.3'
-  gem.add_development_dependency 'public_suffix' # , '~> 1.4.6'
 end
