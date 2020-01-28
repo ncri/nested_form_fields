@@ -10,12 +10,10 @@ rvm:
   - 2.5.3
   - 2.6.5
   - 2.7.0
-before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
+services:
+  - xvfb
 script:
 - bundle exec rspec
-
 matrix:
   exclude:
   - rvm: 2.3.8
