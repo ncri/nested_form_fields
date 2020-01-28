@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
 
   def create
-    @user = User.new(params.require(:user).permit(:name))
+    @user = User.new(params.require(:user).permit(:name, projects_attributes: [:name, :description, todos: [:description]]))
     if @user.save
       flash[:notice] = 'User Created'
       redirect_to edit_user_path(@user)
