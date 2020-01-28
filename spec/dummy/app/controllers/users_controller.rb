@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes params.require(:user)
+    if @user.update_attributes params.require(:user).permit(:name, projects_attributes: [:name, :description, todos: [:description]]))
       flash.now[:notice] = 'User saved'
     end
     render :edit
