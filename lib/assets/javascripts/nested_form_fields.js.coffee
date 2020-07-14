@@ -39,7 +39,7 @@ nested_form_fields.bind_nested_forms_links = () ->
   $('body').off("click", '.remove_nested_fields_link')
   $('body').on 'click', '.remove_nested_fields_link', ->
     $link = $(this)
-    return false unless $.rails.allowAction($link)
+    return false unless $.rails == undefined || $.rails.allowAction($link)
     object_class = $link.data('object-class')
     delete_association_field_name = $link.data('delete-association-field-name')
     removed_index = parseInt(delete_association_field_name.match('(\\d+\\]\\[_destroy])')[0].match('\\d+')[0])
