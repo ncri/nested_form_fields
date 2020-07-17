@@ -22,12 +22,7 @@ nested_form_fields.bind_nested_forms_links = () ->
 	# look for replacements in user defined code and substitute with the index
     template_html = template_html.replace(new RegExp("__nested_field_for_replace_with_index__","g"), added_index)
 
-    # replace child template div tags with script tags to avoid form submission of templates
     $parsed_template = $(template_html)
-    $child_templates = $parsed_template.closestChild('.form_template')
-    $child_templates.each () ->
-      $child = $(this)
-      $child.replaceWith($("<script id='#{$child.attr('id')}' type='text/html' />").html($child.html()))
 
     if target?
       $('#' + target).append($parsed_template)

@@ -89,24 +89,12 @@ module ActionView::Helpers
 
 
     def nested_model_template name, association_name, options, block
-      for_template = self.options[:for_template]
-
-      # Render the outermost template in a script tag to avoid it from being submited with the form
-      # Render all deeper nested templates as hidden divs as nesting script tags messes up the html.
-      # When nested fields are added with javascript by using a template that contains nested templates,
-      # the outermost nested templates div's are replaced by script tags to prevent those nested templates
-      # fields from form subission.
-      #
-      @template.content_tag( for_template ? :div : :script,
-                             type: for_template ? nil : 'text/html',
-                             id: template_id(association_name),
-                             class: for_template ? 'form_template' : nil,
-                             style: for_template ? 'display:none' : nil ) do
+      @template.content_tag( :template, id: template_id(association_name)) do
         nested_fields_wrapper(association_name, options[:wrapper_tag], options[:legend], options[:wrapper_options]) do
           association_class = (options[:class_name] || object.public_send(association_name).klass.name).to_s.classify.constantize
           fields_for_nested_model("#{name}[#{index_placeholder(association_name)}]",
                                    association_class.new,
-                                   options.merge(for_template: true), block)
+                                   options, block)
         end
       end
     end
