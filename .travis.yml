@@ -1,11 +1,22 @@
+language: ruby
+cache: bundler
+sudo: false
+gemfile:
+  - gemfiles/rails_5.2.gemfile
+  - gemfiles/rails_6.0.gemfile
 rvm:
-  - 2.0.0
-  - 2.1.7
-  - 2.2.3
-  - 2.3.2
-
-before_install: gem install bundler -v 1.11.2
-
-before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
+  - 2.3.8
+  - 2.4.5
+  - 2.5.3
+  - 2.6.5
+  - 2.7.0
+services:
+  - xvfb
+script:
+- bundle exec rspec
+matrix:
+  exclude:
+  - rvm: 2.3.8
+    gemfile: gemfiles/rails_6.0.gemfile
+  - rvm: 2.4.5
+    gemfile: gemfiles/rails_6.0.gemfile

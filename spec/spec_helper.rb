@@ -25,12 +25,14 @@ require 'capybara/rails'
 Capybara.default_selector  = :css
 
 RSpec.configure do |config|
-  config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
   config.include AssertDifference
   config.use_transactional_fixtures = true
   config.include Capybara::DSL
   config.infer_spec_type_from_file_location!
+
+  # Silence deprecation warnings
+  config.expect_with(:rspec) { |c| c.syntax = :should }
 end
 
 
