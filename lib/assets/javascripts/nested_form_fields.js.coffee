@@ -59,6 +59,9 @@ nested_form_fields.bind_nested_forms_links = () ->
 $(document).on "page:change turbolinks:load", ->
     nested_form_fields.bind_nested_forms_links()
 
+$(document).on "page:change turbo:load", ->
+    nested_form_fields.bind_nested_forms_links()
+
 jQuery ->
     nested_form_fields.bind_nested_forms_links()
 
