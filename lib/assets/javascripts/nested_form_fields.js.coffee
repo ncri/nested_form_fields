@@ -56,10 +56,7 @@ nested_form_fields.bind_nested_forms_links = () ->
     $nested_fields_container.trigger("fields_removed.nested_form_fields",{object_class: object_class, delete_association_field_name: delete_association_field_name, removed_index: removed_index});
     false
 
-$(document).on "page:change turbolinks:load", ->
-    nested_form_fields.bind_nested_forms_links()
-
-$(document).on "page:change turbo:load", ->
+$(document).on "page:change turbolinks:load turbo:load turbo:render", ->
     nested_form_fields.bind_nested_forms_links()
 
 jQuery ->
